@@ -1,0 +1,203 @@
+<!DOCTYPE HTML>
+<!--
+	Telephasic by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Marin Moore</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="whr is-preload">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<div id="header-wrapper">
+					<div id="header" class="container">
+
+						<!-- Logo -->
+							<h1 id="logo"><a href="home.html">Home</a></h1>
+
+						<!-- Nav -->
+							<nav id="nav">
+								<ul>
+									<li>
+										<a href="#">Menu</a>
+										<ul>
+											<li><a href="whr.html">World Happiness Report</a></li>
+											<li><a href="swift.html">Taylor Swift Stats</a></li>
+											<li><a href="resume.html">Resume</a></li>
+										</ul>
+									</li>
+									<li><a href="whr.html">World Happiness Report</a></li>
+									<li class="break"><a href="swift.html">Taylor Swift Stats</a></li>
+									<li><a href="resume.html">Resume</a></li>
+								</ul>
+							</nav>
+
+					</div>
+				</div>
+
+			<!-- Main -->
+				<div class="wrapper">
+					<div class="container" id="main">
+
+						<!-- Content -->
+							<article id="content">
+								<header>
+									<h2>Analysis of the World
+Happiness Report</h2>
+									<p>Analysis performed in Python and R.</p>
+								</header>
+								<a class="image featured"><img src="images/world.jpg" alt="" /></a>
+								<p>Image from <a href="https://unsplash.com/photos/world-map-wall-decor-SCc9AndIwJ4">Unsplash</a></p>
+								<header>
+									<h2>What is the World Happiness Report?</h2>
+								</header>
+								<p>The Gallup World Poll is a survey given to a “nationally representative sample” of respondents from different countries, and one of its many questions asks them to rate their current life satisfaction on a “ladder” or scale from 0 (the worst possible life) to 10 (the best possible life) (<a href="https://worldhappiness.report/about/">World Happiness Report</a>). These ratings are averaged for each country to determine its happiness score, or life ladder score.</p>
+								<p>The World Happiness Report compares life ladder scores to observed data on six factors: gross domestic product per capita, level of social support, life expectancy, degree of freedom to make life choices, level of citizens’ generosity, and level of corruption in government and business.</p>
+								<div class="row">
+							<section class="col-6 col-12-narrower">
+								<article id="content1">
+									<p>The World Happiness Report dataset used for this analysis includes the annual life ladder score and factor values for 166 countries between the years 2005 and 2020.</p>
+									<p>The dataset includes data on 95 countries in 2020, the most recent year reported, with Zimbabwe reporting the lowest life ladder score at 3.16 and Finland reporting the highest at 7.889.</p>
+									<p>The mean life ladder score was 5.841 with a standard deviation of 0.979. As shown to the right, the distribution of life ladder scores was approximately symmetric in 2020 but with a slight left skew.</p>
+								</article>
+							</section>
+							<section class="col-6 col-12-narrower">
+								<a class="image featured"><img src="images/2020.png" alt="" /></a>
+							</section>
+						</div>
+								<header>
+									<h2>Impact of the Six Factors on Life Ladder Scores</h2>
+								</header>
+								<p>Comparisons of each of the six factors to life ladder scores show varying correlations between the variables, suggesting varying influence of those factors on life ladder score. 
+Non-profit and non-governmental organizations could use the following graphs to predict how effective a philanthropic intervention targeting one of the six factors would be in increasing a nation’s life ladder score and thus quality of life.</p>
+							</article>
+
+						<div class="row features">
+							<section class="col-4 col-12-narrower feature">
+								<div class="image-wrapper first">
+									<a class="image featured"><img src="images/gdp.png" alt="" /></a>
+								</div>
+							</section>
+							<section class="col-4 col-12-narrower feature">
+								<div class="image-wrapper">
+									<a class="image featured"><img src="images/social.png" alt="" /></a>
+								</div>
+							</section>
+							<section class="col-4 col-12-narrower feature">
+								<div class="image-wrapper">
+									<a class="image featured"><img src="images/life.png" alt="" /></a>
+								</div>
+							</section>
+						</div>
+						<div class="row features">
+							<section class="col-4 col-12-narrower feature">
+								<div class="image-wrapper first">
+									<a class="image featured"><img src="images/freedom.png" alt="" /></a>
+								</div>
+							</section>
+							<section class="col-4 col-12-narrower feature">
+								<div class="image-wrapper">
+									<a class="image featured"><img src="images/corruption.png" alt="" /></a>
+								</div>
+							</section>
+							<section class="col-4 col-12-narrower feature">
+								<div class="image-wrapper">
+									<a class="image featured"><img src="images/generosity.png" alt="" /></a>
+								</div>
+							</section>
+						</div>
+						<article id="content2">
+							<p>The the top left, top center, and top right plots above show that life ladder scores appear to have a strong positive correlation with GDP per capita, level of social support, and life expectancy, respectively. This suggests that fluctuations in these values would have a significant effect on life ladder score.
+</p>
+							<p>The bottom left and bottom center plots above show a weak positive correlation and a weak negative correlation, respectively, between life ladder score and degree of freedom to make life choices and level of corruption, implying that changes in those factors would have a small influence on life-ladder score.</p>
+							<p>Finally, the bottom right plot above shows little correlation between life ladder scores and the level of citizens’ generosity, which suggests that generosity has little to no effect on life ladder score. This makes sense because these values represent “the residual of regressing the national average of GWP [Gallup World Poll] responses to the donation question ‘Have you donated money to a charity in the past month?’ on log GDP per capita” rather than level of generosity itself (<a href="https://happiness-report.s3.amazonaws.com/2023/WHR+23.pdf">Helliwell, et al. 39</a>). Because of this, generosity has been omitted from the computations described below, and the remaining factors are referred to as “the five factors.”</p>
+							<header>
+								<h2>K-Means Clustering Analysis</h2>
+							</header>
+						</article>
+
+						<div class="row">
+							<section class="col-6 col-12-narrower">
+								<article id="content3">
+									<p>Performing a k-means clustering analysis of the 126 countries with reported data from 2019 (after scaling the data to ensure no variable dominated the analysis) produced 13 groups of countries with similar characteristics, as represented by similar values in life-ladder scores and the five factors. By examining these groups, philanthropic organizations could determine broadly which nations require similar help and which could serve as models for struggling countries.</p>
+									<p>The clustering analysis produced two groups with just one country each, suggesting that those two countries are quite different from all others in 2019. The first, Afghanistan, reported a very low life ladder score, GDP, level of social support, life expectancy, and degree of freedom and a high level of corruption. The second, Singapore, reported an above average life ladder score; a high GDP, level of social support, life expectancy, and degree of freedom; and a low level of corruption. Overall, this implies that Afghanistan is the country most in need of humanitarian aid while Singapore should serve as a model for the rest of the world.</p>
+									<p>This analysis also reveals which countries have similar issues and would thus benefit from similar aid missions. Algeria and Lebanon, which make up a cluster of two, report above average GDP, level of social support, life expectancy, and level of corruption but a low life ladder score and very low degree of freedom. Citizens of these nations could best benefit from political reform allowing greater freedoms. The cluster containing Benin, India, Malawi, Morocco, Rwanda, Tanzania, and Zambia (named Cluster 12) has a low life ladder score, GDP, level of social support, and life expectancy but an above average degree of freedom and below average level of corruption. This suggests that these countries experience more economic than governmental issues and would benefit from measures to stimulate the economy, improve working conditions, provide community support systems, and increase access to adequate and affordable healthcare.</p>
+								</article>
+							</section>
+							<section class="col-6 col-12-narrower">
+								<a class="image featured"><img src="images/algeria.png" alt="" /></a>
+								<a class="image featured"><img src="images/cluster12.png" alt="" /></a>
+							</section>
+						<header>
+							<h2>Regression Model</h2>
+						</header>
+						</div>
+
+						<div class="row">
+							<section class="col-6 col-12-narrower">
+								<a class="image featured"><img src="images/reg1.png" alt="" /></a>
+								<a class="image featured"><img src="images/reg2.png" alt="" /></a>
+								<a class="image featured"><img src="images/reg3.png" alt="" /></a>
+							</section>
+							<section class="col-6 col-12-narrower">
+								<article id="content3">
+									<p>A regression model with life-ladder score as the response variable and the five factors as predictors estimates the impact each of the five factors has on a country’s life-ladder score. The linear regression model with the form Life Ladder Score = -1.863749 + 0.334608(GDP) + 2.378443(Social Support) + 0.029624(Life Expectancy) + 1.314385(Freedom) – 0.769423(Corruption) accounts for 74.47% of the variation in life-ladder score. The plots to the left show the correlation between each factor and life ladder score as defined by the model when all other variables are held constant. The figure displays the positive correlation between life ladder score and GDP, level of social support, life expectancy, and degree of freedom and the negative correlation between life ladder score and level of corruption predicted by the data visualization step of this analysis.</p>
+									<p>Non-profit and non-governmental organizations could use this regression model to predict how effective a philanthropic intervention targeting one of the five factors would be in increasing a nation’s life-ladder score, which generally correlates to citizens’ quality of life. For instance, measures to improve access to and quality of healthcare that correspond to a one-year increase in a country’s life expectancy could be expected to correlate with a 0.029624 in that nation’s life ladder score.</p>
+								</article>
+							</section>
+						</div>
+						<header>
+							<h2>Impact of the COVID-19 Pandemic on Life-Ladder Scores</h2>
+						</header>
+						<div class="row">
+							<section class="col-6 col-12-narrower">
+								<article id="content4">
+									<p>Since life ladder score approximates quality of life in a given country, comparisons of life ladder scores by country between 2019 and 2020 could reveal the impact of the COVID-19 pandemic on quality of life.</p>
+									<p>Because the distribution of the difference in those yearly scores by country is roughly symmetrical and about half of the countries experienced a decrease in life ladder score while the other half experienced an increase, the World Happiness Report does not appear to reflect changes to quality of life during the COVID-19 pandemic.</p>
+								</article>
+							</section>
+							<section class="col-6 col-12-narrower">
+								<a class="image featured"><img src="images/pandemic.png" alt="" /></a>
+							</section>
+						</div>
+						<article id="content5">
+							<header>
+								<h2>Conclusion</h2>
+							</header>
+							<p>TThe World Happiness Report offers insight into a country’s quality and condition of life via the life ladder score and six factor values. Because the goal of humanitarian work is to improve quality of life within a community, analysis of the data from the World Happiness Report allows non-profit and non-governmental organizations to determine the most effective countries to target and mission types to design in their work.</p>
+							<p>Using citizens’ happiness to signify overall quality of life emphasizes both the well-being of individuals and of their community because individual betterment benefits the community and community betterment benefits the individual. Acknowledging this symbiotic relationship can lead to improvements in both individual and community happiness, as taught by the World Happiness Report.</p>
+						</article>
+					</div>
+				</div>
+
+			<!-- Footer -->
+				<br>
+				<ul class="menu" style="text-align: center; width: 100%;">
+					<li>LinkedIn: <a href="https://www.linkedin.com/in/marinmoore">marinmoore</a></li>
+					<li>Email: <a href="mailto: mooremari@dickinson.edu">mooremari@dickinson.edu</a></li>
+					<li>GitHub: <a href="https://github.com/marinmoore">marinmoore</a></li>
+				</ul>
+				<hr>
+				<br>
+				<ul class="menu" style="text-align: center; width: 100%;">
+					<li>&copy; Marin Moore. All rights reserved.</li>
+					<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+				</ul>
+		</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

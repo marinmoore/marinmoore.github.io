@@ -1,0 +1,155 @@
+<!DOCTYPE HTML>
+<!--
+	Telephasic by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Marin Moore</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="whr is-preload">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<div id="header-wrapper">
+					<div id="header" class="container">
+
+						<!-- Logo -->
+							<h1 id="logo"><a href="home.html">Home</a></h1>
+
+						<!-- Nav -->
+							<nav id="nav">
+								<ul>
+									<li>
+										<a href="#">Menu</a>
+										<ul>
+											<li><a href="whr.html">World Happiness Report</a></li>
+											<li><a href="swift.html">Taylor Swift Stats</a></li>
+											<li><a href="resume.html">Resume</a></li>
+										</ul>
+									</li>
+									<li><a href="whr.html">World Happiness Report</a></li>
+									<li class="break"><a href="swift.html">Taylor Swift Stats</a></li>
+									<li><a href="resume.html">Resume</a></li>
+								</ul>
+							</nav>
+
+					</div>
+				</div>
+
+			<!-- Main -->
+				<div class="wrapper">
+					<div class="container" id="main">
+
+						<!-- Content -->
+							<article id="content">
+								<header>
+									<h2>Analysis of Taylor Swift's Spotify Statistics</h2>
+									<p>Analysis performed in Python using pandas, NumPy, and matplotlib.</p>
+								</header>
+								<a class="image featured"><img src="images/taylor.jpg" alt="" /></a>
+								<p>Image from <a href="https://unsplash.com/photos/taylor-swift-album-RjD01Is-KnI">Unsplash</a></p>
+								<header>
+									<h2>About the Datasets</h2>
+								</header>
+								<p>The first dataset (sourced from <a href="https://github.com/rfordatascience/tidytuesday/blob/master/data/2023/2023-10-17/readme.md">tidyverse on GitHub</a>) provides general statistics and Spotify-specific statistics for Taylor Swift's discography from her self-titled debut album to Midnights, spanning 10 original albums and 2 re-released albums. Such statistics include the track release date, danceability score, energy score (the "perceptual measure of intensity and activity"), speechiness, acousticness, instrumentalness, valence (positivity) score, tempo, song key, and song duration (<a href="https://github.com/rfordatascience/tidytuesday/blob/master/data/2023/2023-10-17/readme.md">tidyverse</a>).</p>
+								<p>The second dataset (sourced from <a href="https://kworb.net/spotify/artist/06HL4z0CvFAxyc27GXpf02_songs.html">Kworb</a>) provides the number of Spotify streams each of her songs had as of December 7, 2023 and the highest number of streams each song received in a single day. Merging these two datasets allows for the computation of each song's average streams per day from its release date to December 7, 2023.</p>
+								<header>
+									<h2>How to Make the Next Hit Song</h2>
+								</header>
+								<p>A comparison of Taylor Swift's 10% most-streamed songs and her 10% least-streamed songs shows commonalities among the popular songs and what sets them apart from the unpopular songs.</p>
+							<div class="row">
+								<section class="col-6 col-12-narrower">
+									<a class="image featured"><img src="images/energy.png" alt="" /></a>
+								</section>
+								<section class="col-6 col-12-narrower">
+									<a class="image featured"><img src="images/valence.png" alt="" /></a>
+								</section>
+							</div>
+							<div class="row">
+								<section class="col-6 col-12-narrower">
+									<a class="image featured"><img src="images/tempo.png" alt="" /></a>
+								</section>
+								<section class="col-6 col-12-narrower">
+									<a class="image featured"><img src="images/duration.png" alt="" /></a>
+								</section>
+							</div>
+								<p>Compared to her 10% least-streamed songs, which have energy scores almost uniformly distibuted between 0.1 and 0.9, Taylor's top 10% most-streamed songs have a mode energy score between 0.6 and 0.7, as shown by the top left plot above. The top right plot above shows that while her least-popular songs have a mode valence (positivity) score between 0.2 and 0.3, her most popular songs have a mode valence score between 0.4 and 0.6, suggesting that her more positive songs are more likely to be hits. The histogram for song tempo (shown bottom left above) shows a mode tempo between 100 and 150 beats per minute for the bottom 10% of songs, but the top 10% has a clear mode between 75 and 100 beats per minute, implying that songs with a slower tempo are more likely to be hits. While the mode of song duration for the least-popular songs is between (approximately) 260 and 290 seconds, as depicted by the bottom right plot above, her top 10% are more commonly between 180 and 220 seconds, which suggests that her shorter songs are more popular. The plot above omits the outlier of "All Too Well (10-Minute Version)", which is over 600 seconds long.</p>
+								<p>In all, these graphs suggest that if Taylor wanted to create her next big hit, she should write a song with moderate energy (between 0.6 and 0.7 on Spotify's scale), moderate valence (between 0.4 and 0.6 on Spotify's scale), a tempo between 75 and 100 beats per minute, lasting between 180 and 220 seconds.</p>
+								<header>
+									<h2>How Popular are the Re-Released Albums?</h2>
+								</header>
+								<p>Since 2021, Taylor Swift has been re-releasing her first six albums so she can fully own her music. The tidyverse dataset was compiled before the releases of Speak Now (Taylor's Version) and 1989 (Taylor's Version), both released in 2023, so it only includes data for Fearless (Taylor's Version) and Red (Taylor's Version) among the re-released albums.</p>
+
+							<div class="row">
+								<section class="col-6 col-12-narrower">
+									<a class="image featured"><img src="images/fearless.png" alt="" /></a>
+								</section>
+								<section class="col-6 col-12-narrower">
+									<a class="image featured"><img src="images/red.png" alt="" /></a>
+								</section>
+							</div>
+
+							<p>The plots above compare Fearless to Fearless (Taylor's Version) as well as Red to Red (Taylor's Version) song-by-song on average number of streams per day since the albums were released, with the omission of the songs 'from the vault' on the re-released albums that did not appear on the original albums. This comparison reveals that the re-released albums are much more popular. This could be because Taylor has a much larger fan base now than when she released the original version of each of those albums (2008 for Fearless and 2012 for Red), and the fan base has undoubtedly become more cult-like.</p>
+							<p>With the exception of "We Are Never Ever Getting Back Together" on Red, every song on both Fearless (Taylor's Version) and Red (Taylor's Version) has more average streams per day than its corresponding song on the original albums, showing that Taylor is making money (especially because she fully owns the songs on the re-recorded albums and receives more in royalties than for the originals) from streams much faster from the re-recordings than from the originals. This data proves that not only is it personally beneficial to her to own her own music, it is significantly financially beneficial to her as well, so she should continue to re-release the other albums (her self-titled debut album and reputation).</p>
+
+							<header>
+								<h2>How Has Taylor's Music Changed Album to Album?</h2>
+							</header>
+							<p>For Taylor Swift fans curious to see how her music has changed album to album (which spans - in this dataset - from the release of Taylor Swift in 2006 to Midnights in 2022), the below graphs quantify select trends. These statistics can help a Taylor Swift fan decide which album to listen to based on the mood they are in: do they want an acoustic album? High positivity? To dance? High energy?</p>
+							<div class="row">
+								<section class="col-6 col-12-narrower">
+									<a class="image featured"><img src="images/acousticness.png" alt="" /></a>
+								</section>
+								<section class="col-6 col-12-narrower">
+									<a class="image featured"><img src="images/valence_album.png" alt="" /></a>
+								</section>
+							</div>
+							<div class="row">
+								<section class="col-6 col-12-narrower">
+									<a class="image featured"><img src="images/danceability.png" alt="" /></a>
+								</section>
+								<section class="col-6 col-12-narrower">
+									<a class="image featured"><img src="images/energy_album.png" alt="" /></a>
+								</section>
+							</div>
+							<p>The acousticness score describes Spotify's confidence (ranging from 0 to 1) that the song is acoustic. As shown by the top left plot above, folklore and evermore have the highest average acousticness scores, while reputation has the lowest.</p>
+							<p>Lover has the highest average valence (positivity) score of all of the albums, while reputation and Midnights have the lowest (top right plot above). This makes sense because Lover is considered the most love song-filled album (written at the height of her six-year relationship with actor Joe Alwyn), while reputation is an expression of Taylor's anger at the media for treating her poorly for no reason other than sensationalism and Midnights is considered a breakup album, after Taylor broke up with Joe Alwyn.</p>
+							<p>Luckily for Taylor Swift fans, all of her albums have a similar average danceability score, describing how easy the songs are to dance to. Danceability interestingly does not appear to correlate with energy score (at least on the full-album level), which is highest for Taylor Swift, Speak Now, and 1989 and lowest for folklore and Midnights.</p>
+							<header>
+								<h3>Changes in the Re-Recorded Albums</h3>
+							</header>
+							<p>While there appears to be little difference in the acousticness or danceability scores between Fearless and Fearless (Taylor's Version), the re-recorded version has slightly higher valence (positivity) and energy scores than the original. Red and Red (Taylor's Version) appear mostly the same across those five statistics, although the average danceability score for the re-recorded album is slightly lower than in the original.</p>
+						</article>
+					</div>
+				</div>
+
+			<!-- Footer -->
+				<br>
+				<ul class="menu" style="text-align: center; width: 100%;">
+					<li>LinkedIn: <a href="https://www.linkedin.com/in/marinmoore">marinmoore</a></li>
+					<li>Email: <a href="mailto: mooremari@dickinson.edu">mooremari@dickinson.edu</a></li>
+					<li>GitHub: <a href="https://github.com/marinmoore">marinmoore</a></li>
+				</ul>
+				<hr>
+				<br>
+				<ul class="menu" style="text-align: center; width: 100%;">
+					<li>&copy; Marin Moore. All rights reserved.</li>
+					<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+				</ul>
+		</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
