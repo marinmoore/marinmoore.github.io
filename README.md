@@ -1,2 +1,2 @@
 # marinmoore.github.io
-My personal data analysis portfolio.
+My personal Data Analytics and Women's, Gender, & Sexuality Studies portfolio.
