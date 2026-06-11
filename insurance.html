@@ -157,32 +157,29 @@
 										<li>age, systolic_bp, diastolic_bp, and hba1c appear to have very weak positive correlations with log(annual medical cost).</li>
 										<li>risk_score has a noticeable but weak positive correlation with log(annual medical cost).</li>
 									</ul>
-									<p>Only the plots for household_size, deductible, chronic_count, log_income, age, and risk_score are included here to represent the various relationship patterns between numerical predictors and log_annual_cost.</p>
 								</article>
 							</section>
 							<section class="col-6 col-12-narrower">
 								<a class="image featured"><img src="images/numerical.png" alt="" /></a>
 							</section>
+						<p>Only the plots for household_size, deductible, chronic_count, log_income, age, and risk_score are included here to represent the various relationship patterns between numerical predictors and log_annual_cost.</p>
 						<header>
 							<h3>Binary Predictors</h3>
 						</header>
-						</div>
-
-						<div class="row">
 							<section class="col-6 col-12-narrower">
 								<a class="image featured"><img src="images/binary.png" alt="" /></a>
 							</section>
 							<section class="col-6 col-12-narrower">
 								<article id="content3">
 									<p>All binary predictors appear to have a minor relationship with annual medical cost because, for each predictor, clients who had the condition had a noticeably lower minimum, 25th percentile, median, 75th percentile, and maximum log(Annual Medical Cost) (ignoring outliers) than clients without the condition. The difference in median log(Aunnual Medical Cost) between clients who had and did not have each condition is about equal, suggesting that all binary predictors could be a useful for modeling.</p>
+									<p>Only the boxplot for hypertension is included here to represent the relationship between all binary predictors and log_annual_cost.</p>
 								</article>
-							</section>
-							<p>Only the boxplot for hypertension is included here to represent the relationship between all binary predictors and log_annual_cost.</p>
 						<header>
 							<h3>Predictor Correlations</h3>
 						</header>
+							</section>
 						</div>
-
+								
 						<div class="row">
 							<section class="col-6 col-12-narrower">
 								<article id="content3">
@@ -212,7 +209,8 @@
 									</ul>
 							</section>
 						</div>
-
+								
+						<div class="row">
 								<header>
 									<h2>Model Development</h2>
 									<h3>Linear Regression</h3>
@@ -220,7 +218,6 @@
 								<p>A lasso regression model pushed the coefficients of 21 predictors and dummy variables for categorical predictors to 0, suggesting that these are not useful predictors for a linear regression model. Many other predictors have coefficients close to 0, so the linear regression model will keep the following 15 predictors which had coefficients for which the absolute value is >= 0.01: chronic_count, age, risk_score, bmi, diabetes, copd, chronic_count*diabetes, chronic_count*arthritis, risk_score*copd, chronic_count*hypertension, risk_score*diabetes, chronic_count*mental_health, risk_score*age, risk_score*chronic_count, and smoker.</p>
 								<p>The predictors arthritis, hypertension, and mental_health will also be included in the linear regression model since they are used in the significant interaction terms, although they are not significant themselves.</p>
 
-						<div class="row">
 							<section class="col-6 col-12-narrower">
 								<article id="content3">
 									<table border="1">
