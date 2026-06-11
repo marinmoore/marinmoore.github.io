@@ -141,7 +141,7 @@
 						<div class="row">
 								<p>Overall, log_annual_cost does not appear to vary depending on category for the predictors sex, region, urban_rural, education, marital_status, employment_status, alcohol_freq, plan_type, or network_tier because the boxplots appear approxmately uniform across categories for those predictors. Only the boxplot for sex is included here to represent the relationship between those predictors and log_annual_cost.</p>
 									<a class="image featured"><img src="images/categorical.png" alt="" /></a>
-								<p>However, smoker appears to have an effect on log_annual_cost since clients who never smoked had a noticeably lower minimum, 25th percentile, median, 75th percentile, and maximum log(Annual Medical Cost) (ignoring outliers) than former smokers, who had lower values at each percentile than current smokers. This suggests that smoker would be a useful predictor for modeling.</p>
+								<p style="margin-bottom: 0px; margin-top: 0px;">However, smoker appears to have an effect on log_annual_cost since clients who never smoked had a noticeably lower minimum, 25th percentile, median, 75th percentile, and maximum log(Annual Medical Cost) (ignoring outliers) than former smokers, who had lower values at each percentile than current smokers. This suggests that smoker would be a useful predictor for modeling.</p>
 								<header>
 									<h3>Numerical Predictors</h3>
 								</header>
@@ -167,7 +167,7 @@
 							<section class="col-6 col-12-narrower">
 								<a class="image featured"><img src="images/numerical.png" alt="" /></a>
 							</section>
-						<p>Only the plots for household_size, deductible, chronic_count, log_income, age, and risk_score are included here to represent the various relationship patterns between numerical predictors and log_annual_cost.</p>
+						<p style="margin-bottom: 0px; margin-top: 0px;">Only the plots for household_size, deductible, chronic_count, log_income, age, and risk_score are included here to represent the various relationship patterns between numerical predictors and log_annual_cost.</p>
 							<header>
 								<h3>Binary Predictors</h3>
 							</header>
@@ -222,10 +222,10 @@
 						</div>
 						
 						<div class="row">
-								<p style="margin-bottom: 0px; margin-top: 20px;">A lasso regression model pushed the coefficients of 21 predictors and dummy variables for categorical predictors to 0, suggesting that these are not useful predictors for a linear regression model. Many other predictors have coefficients close to 0, so the linear regression model will keep the following 15 predictors which had coefficients for which the absolute value is >= 0.01: chronic_count, age, risk_score, bmi, diabetes, copd, chronic_count*diabetes, chronic_count*arthritis, risk_score*copd, chronic_count*hypertension, risk_score*diabetes, chronic_count*mental_health, risk_score*age, risk_score*chronic_count, and smoker.</p>
-								<p style="margin-bottom: 0px; margin-top: 20px;">The predictors arthritis, hypertension, and mental_health will also be included in the linear regression model since they are used in the significant interaction terms, although they are not significant themselves.</p>
-								<p>Using 5-fold cross-validation, the mean R^2 of the model is 0.168. On average, the model explains about 16.8% of the out-of-sample variation in log annual medical costs. Although seemingly low, this is actually a reasonable value for medical cost regressions since it is a difficult target to predict.</p>
-								<p>Retraining the linear regression model on all observations in the dataset produces the following model:</p>
+								<p style="margin-bottom: 0px;">A lasso regression model pushed the coefficients of 21 predictors and dummy variables for categorical predictors to 0, suggesting that these are not useful predictors for a linear regression model. Many other predictors have coefficients close to 0, so the linear regression model will keep the following 15 predictors which had coefficients for which the absolute value is >= 0.01: chronic_count, age, risk_score, bmi, diabetes, copd, chronic_count*diabetes, chronic_count*arthritis, risk_score*copd, chronic_count*hypertension, risk_score*diabetes, chronic_count*mental_health, risk_score*age, risk_score*chronic_count, and smoker.</p>
+								<p style="margin-bottom: 0px;">The predictors arthritis, hypertension, and mental_health will also be included in the linear regression model since they are used in the significant interaction terms, although they are not significant themselves.</p>
+								<p style="margin-bottom: 0px;">Using 5-fold cross-validation, the mean R^2 of the model is 0.168. On average, the model explains about 16.8% of the out-of-sample variation in log annual medical costs. Although seemingly low, this is actually a reasonable value for medical cost regressions since it is a difficult target to predict.</p>
+								<p style="margin-bottom: 0px;">Retraining the linear regression model on all observations in the dataset produces the following model:</p>
 							<section class="col-5 col-12-narrower">
 								<article id="content3">
 									<table style="border:1px solid #52575c;border-collapse:collapse;">
