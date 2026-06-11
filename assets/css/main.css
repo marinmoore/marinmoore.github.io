@@ -1983,8 +1983,6 @@ input, select, textarea {
 
 			table.default td {
 				padding: 0.5em 3em 0.5em 3em;
-  				border: 1px #52575C;
-  				border-radius: 10px;
 			}
 
 			table.default th {
