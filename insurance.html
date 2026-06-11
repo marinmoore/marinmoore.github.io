@@ -77,12 +77,12 @@
 								<p>Sourced from <a href="https://www.kaggle.com/datasets/mohankrishnathalla/medical-insurance-cost-prediction">Kaggle</a>, the medical insurance dataset contains 54 demographic, clinical, and insurance features for 100,000 clients.</p>
 								<p>The goal of this analysis is to perform regression modeling to predict clients' annual medical costs based on the demographic, clinical, and insurance features provided in the dataset.</p>
 								<p>After removing predictors which are unnecessary or would create data leakage, removing rows with anomalous data, and log-transforming skewed predictors, the dataset includes 96,956 clients and the following 36 features:</p>
-								
+							<div class="column">
 							<section class="col-6 col-12-narrower">
 								<article id="content1">
 									<b style="color:#F25B77">Categorical columns:</b>
 									<ul>
-										<li><td>sex</td>: Sex</li>
+										<li><td style="border:1px solid #52575c;">sex</td>: Sex</li>
 										<li>region: The client's geographical region</li>
 										<li>urban_rural: Whether the client lives in an Urban, Suburban, or Rural area</li>
 										<li>education: The client's highest attained education</li>
@@ -128,6 +128,7 @@
 									</ul>
 								</article>
 							</section>
+							</div>
 							<header>
 								<h2>Exploratory Data Analysis</h2>
 								<h3>Categorical Predictors</h3>
@@ -227,88 +228,88 @@
 								<article id="content3">
 									<table style="border:1px solid #52575c;border-collapse:collapse;">
   										<tr>
-  										    <th><b>Variable</b></th>
-  										    <th><b>Coefficient</b></th>
+  										    <th style="border:1px solid #52575c; padding-left: 10px"><b>Variable</b></th>
+  										    <th style="border:1px solid #52575c; padding-left: 10px"><b>Coefficient</b></th>
   										</tr>
   										<tr>
-  										    <td style="border:1px solid #52575c; padding-left: 15px">chronic_count</td>
-  										    <td>0.457581</td>
+  										    <td style="border:1px solid #52575c; padding-left: 10px">chronic_count</td>
+  										    <td style="border:1px solid #52575c; padding-left: 10px">0.457581</td>
     									</tr>
 										<tr>
-  										    <td>risk_score</td>
-  										    <td>0.252727</td>
+  										    <td style="border:1px solid #52575c; padding-left: 10px">risk_score</td>
+  										    <td style="border:1px solid #52575c; padding-left: 10px">0.252727</td>
     									</tr>
 										<tr>
-  										    <td>copd</td>
-  										    <td>0.138358</td>
+  										    <td style="border:1px solid #52575c; padding-left: 10px">copd</td>
+  										    <td style="border:1px solid #52575c; padding-left: 10px">0.138358</td>
     									</tr>
 										<tr>
-  										    <td>diabetes</td>
-  										    <td>0.111011</td>
+  										    <td style="border:1px solid #52575c; padding-left: 10px">diabetes</td>
+  										    <td style="border:1px solid #52575c; padding-left: 10px">0.111011</td>
     									</tr>
 										<tr>
-  										    <td>mental_health</td>
-  										    <td>0.061628</td>
+  										    <td style="border:1px solid #52575c; padding-left: 10px">mental_health</td>
+  										    <td style="border:1px solid #52575c; padding-left: 10px">0.061628</td>
     									</tr>
 										<tr>
-  										    <td>arthritis</td>
-  										    <td>0.054312</td>
+  										    <td style="border:1px solid #52575c; padding-left: 10px">arthritis</td>
+  										    <td style="border:1px solid #52575c; padding-left: 10px">0.054312</td>
     									</tr>
 										<tr>
-  										    <td>hypertension</td>
-  										    <td>0.046657</td>
+  										    <td style="border:1px solid #52575c; padding-left: 10px">hypertension</td>
+  										    <td style="border:1px solid #52575c; padding-left: 10px">0.046657</td>
     									</tr>
 										<tr>
-  										    <td>bmi</td>
-  										    <td>0.011475</td>
+  										    <td style="border:1px solid #52575c; padding-left: 10px">bmi</td>
+  										    <td style="border:1px solid #52575c; padding-left: 10px">0.011475</td>
     									</tr>
 										<tr>
-  										    <td>age</td>
-  										    <td>0.008577</td>
+  										    <td style="border:1px solid #52575c; padding-left: 10px">age</td>
+  										    <td style="border:1px solid #52575c; padding-left: 10px">0.008577</td>
     									</tr>
 										<tr>
-  										    <td>risk_score*age</td>
-  										    <td>-0.002962</td>
+  										    <td style="border:1px solid #52575c; padding-left: 10px">risk_score*age</td>
+  										    <td style="border:1px solid #52575c; padding-left: 10px">-0.002962</td>
     									</tr>
 										<tr>
-  										    <td>risk_score</td>
-  										    <td>0.252727</td>
+  										    <td style="border:1px solid #52575c; padding-left: 10px">risk_score</td>
+  										    <td style="border:1px solid #52575c; padding-left: 10px">0.252727</td>
     									</tr>
 										<tr>
-  										    <td>chronic_count*diabetes</td>
-  										    <td>-0.014421</td>
+  										    <td style="border:1px solid #52575c; padding-left: 10px">chronic_count*diabetes</td>
+  										    <td style="border:1px solid #52575c; padding-left: 10px">-0.014421</td>
     									</tr>
 										<tr>
-  										    <td>chronic_count*hypertension</td>
-  										    <td>-0.028496</td>
+  										    <td style="border:1px solid #52575c; padding-left: 10px">chronic_count*hypertension</td>
+  										    <td style="border:1px solid #52575c; padding-left: 10px">-0.028496</td>
     									</tr>
 										<tr>
-  										    <td>chronic_count*arthritis</td>
-  										    <td>-0.030559</td>
+  										    <td style="border:1px solid #52575c; padding-left: 10px">chronic_count*arthritis</td>
+  										    <td style="border:1px solid #52575c; padding-left: 10px">-0.030559</td>
     									</tr>
 										<tr>
-  										    <td>chronic_count*mental_health</td>
-  										    <td>-0.037021</td>
+  										    <td style="border:1px solid #52575c; padding-left: 10px">chronic_count*mental_health</td>
+  										    <td style="border:1px solid #52575c; padding-left: 10px">-0.037021</td>
     									</tr>
 										<tr>
-  										    <td>risk_score*diabetes</td>
-  										    <td>-0.129977</td>
+  										    <td style="border:1px solid #52575c; padding-left: 10px">risk_score*diabetes</td>
+  										    <td style="border:1px solid #52575c; padding-left: 10px">-0.129977</td>
     									</tr>
 										<tr>
-  										    <td>risk_score*copd</td>
-  										    <td>-0.154252</td>
+  										    <td style="border:1px solid #52575c; padding-left: 10px">risk_score*copd</td>
+  										    <td style="border:1px solid #52575c; padding-left: 10px">-0.154252</td>
     									</tr>
 										<tr>
-  										    <td>risk_score*chronic_count</td>
-  										    <td>-0.156308</td>
+  										    <td style="border:1px solid #52575c; padding-left: 10px">risk_score*chronic_count</td>
+  										    <td style="border:1px solid #52575c; padding-left: 10px">-0.156308</td>
     									</tr>
 										<tr>
-  										    <td>smoker_Former</td>
-  										    <td>-0.313058</td>
+  										    <td style="border:1px solid #52575c; padding-left: 10px">smoker_Former</td>
+  										    <td style="border:1px solid #52575c; padding-left: 10px">-0.313058</td>
     									</tr>
 										<tr>
-  										    <td>smoker_Never</td>
-  										    <td>-0.457670</td>
+  										    <td style="border:1px solid #52575c; padding-left: 10px">smoker_Never</td>
+  										    <td style="border:1px solid #52575c; padding-left: 10px">-0.457670</td>
     									</tr>
 									</table>
 								</article>
