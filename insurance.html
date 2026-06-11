@@ -1,0 +1,436 @@
+<!DOCTYPE HTML>
+<!--
+	Telephasic by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Marin Moore</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="whr is-preload">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<div id="header-wrapper">
+					<div id="header" class="container">
+
+						<!-- Logo -->
+							<h1 id="logo"><a href="index.html">Home</a></h1>
+
+						<!-- Nav -->
+							<nav id="nav">
+								<ul>
+									<li>
+										<a href="#">Menu</a>
+										<ul>
+											<li><a href="resume.html">Resume</a></li>
+											<li><a href="index.html#data">Data Analysis Project Experience</a>
+												<ul>
+													<li><a href="whr.html">World Happiness Report</a></li>
+													<li><a href="swift.html">Taylor Swift Stats</a></li>
+												</ul>
+											</li>
+											<li><a href="index.html#wgss">WGSS Research Experience</a>
+												<ul>
+													<li><a href="gendermarkers.html">Gender Markers on Identity Documents</a></li>
+													<li><a href="embroidery.html">Embroidery as Feminist Resistance</a></li>
+													<li><a href="mst.html">Minority Stress Theory</a></li>
+												</ul>
+											</li>
+											<li><a href="index.html#publications">Publications</a>
+												<ul>
+													<li><a href="intersex.html">Intersex Lived Reality</a></li>
+													<li><a href="annual.html">F&M Annual Report</a></li>
+												</ul>
+												
+											</li>
+										</ul>
+									</li>
+									<li class="break"><a href="resume.html">Resume</a></li>
+								</ul>
+							</nav>
+
+					</div>
+				</div>
+
+			<!-- Main -->
+				<div class="wrapper">
+					<div class="container" id="main">
+
+						<!-- Content -->
+							<article id="content">
+								<header>
+									<h2>The Medical Insurance Dataset Analysis</h2>
+									<h3 style="color:#F25B77">Completed for the course Statistical and Machine Learning, Fall 2025</h3>
+									<h3>Analysis performed in Python.</h3>
+								</header>
+								<a class="image featured"><img src="images/stethoscope.jpg" alt="" /></a>
+								<p>Image from <a href="https://unsplash.com/photos/black-and-silver-stethoscope-on-white-surface-t2BRoXHo58w">Unsplash</a></p>
+								<header>
+									<h2>The Medical Insurance Dataset</h2>
+								</header>
+								<p>Sourced from <a href="https://www.kaggle.com/datasets/mohankrishnathalla/medical-insurance-cost-prediction">Kaggle</a>, the medical insurance dataset contains 54 demographic, clinical, and insurance features for 100,000 clients.</p>
+								<p>The goal of this analysis is to perform regression modeling to predict clients' annual medical costs based on the demographic, clinical, and insurance features provided in the dataset.</p>
+								<p>After removing predictors which are unnecessary or would create data leakage, removing rows with anomalous data, and log-transforming skewed predictors, the dataset includes 96,956 clients and the following 36 features:. </p>
+								<div class="row">
+							<section class="col-6 col-12-narrower">
+								<article id="content1">
+									<p>Categorical columns:
+										- sex: Sex ["Female", "Male", "Other"]
+										- region: The client's geographical region ["Central", "East", "North", "South", "West"]
+										- urban_rural: Whether the client lives in an Urban, Suburban, or Rural area
+										- education: The client's highest attained education ["No HS", "HS", "Some College", "Bachelors", "Masters", "Doctorate"]
+										- marital_status: Marital status ["Single", "Married", "Divorced", "Widowed"]
+										- employment_status: Employment type/status ["Employed", "Self-employed", "Unemployed", "Retired"]
+										- smoker: Smoking status ["Current", "Former", "Never"]
+										- alcohol_freq: Freuqency of alcohol consumption ["None", "Occasional", "Weekly", "Daily"]
+										- plan_type: Type of insurance plan ["EPO", "HMP", "POS", "PPO"]
+										- network_tier: Insurance network tier ["Bronze", "Silver", "Gold", "Platinum"]
+										- hypertension: Hypertension diagnosed (0=No, 1=Yes)
+										- diabetes: Diabetes diagnosed (0=No, 1=Yes)
+										- asthma: Asthma diagnosed (0=No, 1=Yes)
+										- copd: Chronic Obstructive Pulmonary Disease diagnosed (0=No, 1=Yes)
+										- cardiovascular_disease: Cardiovascular disease diagnosed (0=No, 1=Yes)
+										- cancer_history: History of cancer (0=No, 1=Yes)
+										- kidney_disease: Kidney disease diagnosed (0=No, 1=Yes)
+										- liver_disease: Liver Disease diagnosed (0=No, 1=Yes)
+										- arthritis: Arthrisis diagnosed (0=No, 1=Yes)
+										- mental_health: Diagnosed mental health condition (0=No, 1=Yes)</p>
+								</article>
+							</section>
+							<section class="col-6 col-12-narrower">
+								<article id="content1">
+									<p>Numerical columns:
+										- age: Age of the client (0-100 years)
+										- log_income: Logarithm of annual income (USD)
+										- household_size: Number of people in the client's household
+										- dependents: Number of the client's financial dependents
+										- bmi: Body Mass Index
+										- systolic_bp: Systolic blood pressure (mmHg)
+										- diastolic_bp: Diastolic blood pressure (mmHg)
+										- ldl: LDL cholesterol level (mg/dL)
+										- hba1c: Hemoglobin A1c percentage
+										- deductible: Annual deductible (USD)
+										- copay: Copayment amount per healthcare service (USD)
+										- policy_term_years: Length of the insurance policy (1-10 years)
+										- provider_quality: Quality rating of the primary care provider/insurer (1.5-5, presumably rated on a scale 0-5)
+										- risk_score: Calculated health risk score (0-1, normalized)
+										- chronic_count: Number of chronic conditions diagnosed (0-6)
+										- log_annual_cost: Logarithm of total annual medical cost (USD) - The variable of interest</p>
+								</article>
+							</section>
+						</div>
+								<header>
+									<h2>Exploratory Data Analysis</h2>
+									<h3>Categorical Predictors</h3>
+								</header>
+								<p>Overall, log_annual_cost does not appear to vary depending on category for the predictors sex, region, urban_rural, education, marital_status, employment_status, alcohol_freq, plan_type, or network_tier because the boxplots appear approxmately uniform across categories for those predictors. Only the boxplot for sex is included here to represent the relationship between those predictors and log_annual_cost.</p>
+									<a class="image featured"><img src="images/categorical.png" alt="" /></a>
+								<p>However, smoker appears to have an effect on log_annual_cost since clients who never smoked had a noticeably lower minimum, 25th percentile, median, 75th percentile, and maximum log(Annual Medical Cost) (ignoring outliers) than former smokers, who had lower values at each percentile than current smokers. This suggests that smoker would be a useful predictor for modeling.</p>
+								<header>
+									<h3>Numerical Predictors</h3>
+								</header>
+								
+						<div class="row">
+							<section class="col-6 col-12-narrower">
+								<article id="content3">
+									<p>For the discrete numerical predictors:
+										- household_size and dependents appear to have no relationship to log (annual medical cost) since the distribution of log_annual_cost decreases in variance around the mean/median value as the predictor values increase and thus become less common.
+										- deductible, copay, and policy_term_years appear to have no relationship to log(annual medical cost) since the distribution of log_annual_cost is uniform across all values for those predictors.
+										- chronic_count may have some very weak relationship with log(annual medical cost) because the distribution of log_annual_cost appears to skew above the mean/median value as the predictor values increase.
+										For the continuous numerical predictors:
+										- log_income, ldl, and provider_quality have no correlation with log(annual medical cost).
+										- age, systolic_bp, diastolic_bp, and hba1c appear to have very weak positive correlations with log(annual medical cost).
+										- risk_score has a noticeable but weak positive correlation with log(annual medical cost).
+										Only the plots for household_size, deductible, chronic_count, log_income, age, and risk_score are included here to represent the various relationship patterns between numerical predictors and log_annual_cost.</p>
+								</article>
+							</section>
+							<section class="col-6 col-12-narrower">
+								<a class="image featured"><img src="images/numerical.png" alt="" /></a>
+							</section>
+						<header>
+							<h3>Binary Predictors</h3>
+						</header>
+						</div>
+
+						<div class="row">
+							<section class="col-6 col-12-narrower">
+								<a class="image featured"><img src="images/binary.png" alt="" /></a>
+							</section>
+							<section class="col-6 col-12-narrower">
+								<article id="content3">
+									<p>All binary predictors appear to have a minor relationship with annual medical cost because, for each predictor, clients who had the condition had a noticeably lower minimum, 25th percentile, median, 75th percentile, and maximum log(Annual Medical Cost) (ignoring outliers) than clients without the condition. The difference in median log(Aunnual Medical Cost) between clients who had and did not have each condition is about equal, suggesting that all binary predictors could be a useful for modeling.
+										Only the boxplot for hypertension is included here to represent the relationship between all binary predictors and log_annual_cost.</p>
+								</article>
+							</section>
+						<header>
+							<h3>Predictor Correlations</h3>
+						</header>
+						</div>
+
+						<div class="row">
+							<section class="col-6 col-12-narrower">
+								<article id="content3">
+									<p>Correlations among predictors (>= 0.4) which can be intuitively explained:
+										Among health conditions and risks:
+										- chronic_count with risk_score (0.7): clients with chronic conditions are higher risk.
+										- chronic_count and risk_score with nearly all of the health conditions (hypertension, diabetes, etc.): many of those conditions are chronic and increase clients' health risks.
+										- diabetes and hba1c (0.8): diabetes is characterized by high hba1c.
+										- age with risk score (0.7) and systolic_bp (0.5): older people typically have more health risks and have higher risk of high blood pressure.
+										- hypertension with systolic_bp (0.6) and diastolic_bp (0.6): hypertension is high blood pressure.
+										- systolic_bp and diastolic_bp (0.4): higher pressure when the blood is pumped out of the heart (systolic pressure) is often accompanied by higher pressure when the blood is filling the heart (diastolic pressure).
+										Among healthcare/insurance factors:
+										- household_size and dependents (0.9): people living in the same household as the client (especially children) are typically their dependents.
+										When modeling with these combinations of predictors, we should include interaction terms, use regularization methods, or tree-based methods to properly handle the correlations.
+
+										Correlations between the response and predictors:
+										- log_annual_cost has its strongest correlations (>=0.3) with risk_score (0.4), and chronic_count (0.3), suggesting that these are the most important numeric predictors to include in a model.
+										- log_annual_cost has weaker correlations (=0.2) with age, systolic_bp, and hypertension, suggesting that these would also be useful predictors for modeling.</p>
+								</article>
+							</section>
+							<section class="col-6 col-12-narrower">
+								<a class="image featured"><img src="images/heatmap.png" alt="" /></a>
+							</section>
+						</div>
+
+								<header>
+									<h2>Model Development</h2>
+									<h3>Linear Regression</h3>
+								</header>
+								<p>A lasso regression model pushed the coefficients of 21 predictors and dummy variables for categorical predictors to 0, suggesting that these are not useful predictors for a linear regression model. Many other predictors have coefficients close to 0, so the linear regression model will keep the following 15 predictors which had coefficients for which the absolute value is >= 0.01: chronic_count, age, risk_score, bmi, diabetes, copd, chronic_count*diabetes, chronic_count*arthritis, risk_score*copd, chronic_count*hypertension, risk_score*diabetes, chronic_count*mental_health, risk_score*age, risk_score*chronic_count, and smoker.
+									The predictors arthritis, hypertension, and mental_health will also be included in the linear regression model since they are used in the significant interaction terms, although they are not significant themselves.</p>
+
+						<div class="row">
+							<section class="col-6 col-12-narrower">
+								<article id="content3">
+									<table>
+  										<tr>
+  										    <th>Variable</th>
+  										    <th>Coefficient</th>
+  										</tr>
+  										<tr>
+  										    <td>chronic_count</td>
+  										    <td>0.457581</td>
+    									</tr>
+										<tr>
+  										    <td>risk_score</td>
+  										    <td>0.252727</td>
+    									</tr>
+										<tr>
+  										    <td>copd</td>
+  										    <td>0.138358</td>
+    									</tr>
+										<tr>
+  										    <td>diabetes</td>
+  										    <td>0.111011</td>
+    									</tr>
+										<tr>
+  										    <td>mental_health</td>
+  										    <td>0.061628</td>
+    									</tr>
+										<tr>
+  										    <td>arthritis</td>
+  										    <td>0.054312</td>
+    									</tr>
+										<tr>
+  										    <td>hypertension</td>
+  										    <td>0.046657</td>
+    									</tr>
+										<tr>
+  										    <td>bmi</td>
+  										    <td>0.011475</td>
+    									</tr>
+										<tr>
+  										    <td>age</td>
+  										    <td>0.008577</td>
+    									</tr>
+										<tr>
+  										    <td>risk_score*age</td>
+  										    <td>-0.002962</td>
+    									</tr>
+										<tr>
+  										    <td>risk_score</td>
+  										    <td>0.252727</td>
+    									</tr>
+										<tr>
+  										    <td>chronic_count*diabetes</td>
+  										    <td>-0.014421</td>
+    									</tr>
+										<tr>
+  										    <td>chronic_count*hypertension</td>
+  										    <td>-0.028496</td>
+    									</tr>
+										<tr>
+  										    <td>chronic_count*arthritis</td>
+  										    <td>-0.030559</td>
+    									</tr>
+										<tr>
+  										    <td>chronic_count*mental_health</td>
+  										    <td>-0.037021</td>
+    									</tr>
+										<tr>
+  										    <td>risk_score*diabetes</td>
+  										    <td>-0.129977</td>
+    									</tr>
+										<tr>
+  										    <td>risk_score*copd</td>
+  										    <td>-0.154252</td>
+    									</tr>
+										<tr>
+  										    <td>risk_score*chronic_count</td>
+  										    <td>-0.156308</td>
+    									</tr>
+										<tr>
+  										    <td>smoker_Former</td>
+  										    <td>-0.313058</td>
+    									</tr>
+										<tr>
+  										    <td>smoker_Never</td>
+  										    <td>-0.457670</td>
+    									</tr>
+									</table>
+								</article>
+							</section>
+							<section class="col-6 col-12-narrower">
+								<article id="content3">
+									<p>Interpretation
+										- Mean R^2 from cross-validation: 0.168. On average, a linear regression model explains about 16.8% of the out of sample variation in log annual medical costs. Although seemingly low, this is actually a reasonable value for medical cost regressions since it is a difficult target to predict.
+										Main Coefficients
+										- The coefficients for clients who formerly and never smoked are drastically negative (-0.313 and -0.458). This tells us that smoking is a key contributer to higher medical costs in comparison to the last variable of smoking, which is current smoker.
+										- Each chronic condition a client has increases log annual medical cost drastically (0.458 log(USD) per chronic condition).
+										- Risk score increases are associated with higher medical costs (0.252 higher log annual medical cost for clients with a risk score of 1 compared to clients with a risk score of 0).
+										- Age has a surprisingly small coefficient, telling us that with age, log annual medical cost increases slowly (0.008 log(USD) per 1 year increase in age).</p>
+								</article>
+							</section>
+						<header>
+							<h3>Predictor Correlations</h3>
+						</header>
+						</div>
+
+							
+						<div class="row features">
+							<section class="col-4 col-12-narrower feature">
+								<div class="image-wrapper first">
+									<a class="image featured"><img src="images/gdp.png" alt="" /></a>
+								</div>
+							</section>
+							<section class="col-4 col-12-narrower feature">
+								<div class="image-wrapper">
+									<a class="image featured"><img src="images/social.png" alt="" /></a>
+								</div>
+							</section>
+							<section class="col-4 col-12-narrower feature">
+								<div class="image-wrapper">
+									<a class="image featured"><img src="images/life.png" alt="" /></a>
+								</div>
+							</section>
+						</div>
+						<div class="row features">
+							<section class="col-4 col-12-narrower feature">
+								<div class="image-wrapper first">
+									<a class="image featured"><img src="images/freedom.png" alt="" /></a>
+								</div>
+							</section>
+							<section class="col-4 col-12-narrower feature">
+								<div class="image-wrapper">
+									<a class="image featured"><img src="images/corruption.png" alt="" /></a>
+								</div>
+							</section>
+							<section class="col-4 col-12-narrower feature">
+								<div class="image-wrapper">
+									<a class="image featured"><img src="images/generosity.png" alt="" /></a>
+								</div>
+							</section>
+						</div>
+						<article id="content2">
+							<p>The the top left, top center, and top right plots above show that life ladder scores appear to have a strong positive correlation with GDP per capita, level of social support, and life expectancy, respectively. This suggests that fluctuations in these values would have a significant effect on life ladder score.</p>
+							<p>The bottom left and bottom center plots above show a weak positive correlation and a weak negative correlation, respectively, between life ladder score and degree of freedom to make life choices and level of corruption, implying that changes in those factors would have a small influence on life-ladder score.</p>
+							<p>Finally, the bottom right plot above shows little correlation between life ladder scores and the level of citizens’ generosity, which suggests that generosity has little to no effect on life ladder score. This makes sense because these values represent “the residual of regressing the national average of GWP [Gallup World Poll] responses to the donation question ‘Have you donated money to a charity in the past month?’ on log GDP per capita” rather than level of generosity itself (<a href="https://happiness-report.s3.amazonaws.com/2023/WHR+23.pdf">Helliwell, et al. 39</a>). Because of this, generosity has been omitted from the computations described below, and the remaining factors are referred to as “the five factors.”</p>
+							<header>
+								<h2>K-Means Clustering Analysis</h2>
+							</header>
+						</article>
+
+						<div class="row">
+							<section class="col-6 col-12-narrower">
+								<article id="content3">
+									<p>Performing a k-means clustering analysis of the 126 countries with reported data from 2019 (after scaling the data to ensure no variable dominated the analysis) produced 13 groups of countries with similar characteristics, as represented by similar values in life-ladder scores and the five factors. By examining these groups, philanthropic organizations could determine broadly which nations require similar help and which could serve as models for struggling countries.</p>
+									<p>The clustering analysis produced two groups with just one country each, suggesting that those two countries are quite different from all others in 2019. The first, Afghanistan, reported a very low life ladder score, GDP, level of social support, life expectancy, and degree of freedom and a high level of corruption. The second, Singapore, reported an above average life ladder score; a high GDP, level of social support, life expectancy, and degree of freedom; and a low level of corruption. Overall, this implies that Afghanistan is the country most in need of humanitarian aid while Singapore should serve as a model for the rest of the world.</p>
+									<p>This analysis also reveals which countries have similar issues and would thus benefit from similar aid missions. Algeria and Lebanon, which make up a cluster of two, report above average GDP, level of social support, life expectancy, and level of corruption but a low life ladder score and very low degree of freedom. Citizens of these nations could best benefit from political reform allowing greater freedoms. The cluster containing Benin, India, Malawi, Morocco, Rwanda, Tanzania, and Zambia (named Cluster 12) has a low life ladder score, GDP, level of social support, and life expectancy but an above average degree of freedom and below average level of corruption. This suggests that these countries experience more economic than governmental issues and would benefit from measures to stimulate the economy, improve working conditions, provide community support systems, and increase access to adequate and affordable healthcare.</p>
+								</article>
+							</section>
+							<section class="col-6 col-12-narrower">
+								<a class="image featured"><img src="images/algeria.png" alt="" /></a>
+								<a class="image featured"><img src="images/cluster12.png" alt="" /></a>
+							</section>
+						<header>
+							<h2>Regression Model</h2>
+						</header>
+						</div>
+
+						<div class="row">
+							<section class="col-6 col-12-narrower">
+								<a class="image featured"><img src="images/reg1.png" alt="" /></a>
+								<a class="image featured"><img src="images/reg2.png" alt="" /></a>
+								<a class="image featured"><img src="images/reg3.png" alt="" /></a>
+							</section>
+							<section class="col-6 col-12-narrower">
+								<article id="content3">
+									<p>A regression model with life-ladder score as the response variable and the five factors as predictors estimates the impact each of the five factors has on a country’s life-ladder score. The linear regression model with the form Life Ladder Score = -1.863749 + 0.334608(GDP) + 2.378443(Social Support) + 0.029624(Life Expectancy) + 1.314385(Freedom) – 0.769423(Corruption) accounts for 74.47% of the variation in life-ladder score. The plots to the left show the correlation between each factor and life ladder score as defined by the model when all other variables are held constant. The figure displays the positive correlation between life ladder score and GDP, level of social support, life expectancy, and degree of freedom and the negative correlation between life ladder score and level of corruption predicted by the data visualization step of this analysis.</p>
+									<p>Non-profit and non-governmental organizations could use this regression model to predict how effective a philanthropic intervention targeting one of the five factors would be in increasing a nation’s life-ladder score, which generally correlates to citizens’ quality of life. For instance, measures to improve access to and quality of healthcare that correspond to a one-year increase in a country’s life expectancy could be expected to correlate with a 0.029624 in that nation’s life ladder score.</p>
+								</article>
+							</section>
+						</div>
+						<header>
+							<h2>Impact of the COVID-19 Pandemic on Life-Ladder Scores</h2>
+						</header>
+						<div class="row">
+							<section class="col-6 col-12-narrower">
+								<article id="content4">
+									<p>Since life ladder score approximates quality of life in a given country, comparisons of life ladder scores by country between 2019 and 2020 could reveal the impact of the COVID-19 pandemic on quality of life.</p>
+									<p>Because the distribution of the difference in those yearly scores by country is roughly symmetrical and about half of the countries experienced a decrease in life ladder score while the other half experienced an increase, the World Happiness Report does not appear to reflect changes to quality of life during the COVID-19 pandemic.</p>
+								</article>
+							</section>
+							<section class="col-6 col-12-narrower">
+								<a class="image featured"><img src="images/pandemic.png" alt="" /></a>
+							</section>
+						</div>
+						<article id="content5">
+							<header>
+								<h2>Conclusion</h2>
+							</header>
+							<p>The World Happiness Report offers insight into a country’s quality and condition of life via the life ladder score and six factor values. Because the goal of humanitarian work is to improve quality of life within a community, analysis of the data from the World Happiness Report allows non-profit and non-governmental organizations to determine the most effective countries to target and mission types to design in their work.</p>
+							<p>Using citizens’ happiness to signify overall quality of life emphasizes both the well-being of individuals and of their community because individual betterment benefits the community and community betterment benefits the individual. Acknowledging this symbiotic relationship can lead to improvements in both individual and community happiness, as taught by the World Happiness Report.</p>
+						</article>
+					</div>
+				</div>
+
+			<!-- Footer -->
+				<br>
+				<ul class="menu" style="text-align: center; width: 100%;">
+					<li>LinkedIn: <a href="https://www.linkedin.com/in/marinmoore">marinmoore</a></li>
+					<li>Email: <a href="mailto: mooremari@dickinson.edu">mooremari@dickinson.edu</a></li>
+					<li>GitHub: <a href="https://github.com/marinmoore">marinmoore</a></li>
+				</ul>
+				<hr>
+				<br>
+				<ul class="menu" style="text-align: center; width: 100%;">
+					<li>&copy; Marin Moore. All rights reserved.</li>
+					<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+				</ul>
+		</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
