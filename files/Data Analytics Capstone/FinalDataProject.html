@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Tracking &amp; Predicting Anti-LGBTQ+ Hate Crimes in the United States</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Marin Moore" />
+    <meta name="date" content="2026-05-12" />
+    <script src="libs/header-attrs-2.30/header-attrs.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Tracking &amp; Predicting Anti-LGBTQ+ Hate Crimes in the United States
+]
+.author[
+### Marin Moore
+]
+.institute[
+### Dickinson College
+]
+.date[
+### 2026-05-12
+]
+
+---
+
+
+&lt;style type="text/css"&gt;
+.small-text {
+  font-size: 21px;
+}
+&lt;/style&gt;
+# The FBI Hate Crimes Dataset
+
+This dataset includes all hate crimes reported to the FBI from 1991 to 2024.
+
+--
+
+Features include:
+- Geographic data (city, state, region)
+- Offender data (count, age, race, ethnicity)
+- Victim data (count, age, race, ethnicity)
+- Incident data (offense type, bias type)
+
+--
+
+For EDA, only data from the years 2015 to 2024 is used to ensure data relevance. For correlation and regression analysis, only data from 2024 is used to evaluate contemporary influencing factors rather than changes over time. 
+
+---
+## Basic EDA: Hate Crimes by Type
+
+&lt;center&gt;
+&lt;img src="Crimes2015-2024.png" style="width: 80%;" /&gt; 
+&lt;/center&gt;
+
+---
+## Basic EDA: All Hate Crimes by State
+
+&lt;center&gt;
+&lt;img src="AllCrimesMap2015-2024.png" style="width: 85%;" /&gt; 
+&lt;/center&gt;
+
+---
+## Basic EDA: Anti-LGBTQ+ Hate Crimes by State
+
+&lt;center&gt;
+&lt;img src="AntiLGBTQMap2015-2024.png" style="width: 85%;" /&gt; 
+&lt;/center&gt;
+
+---
+# Secondary Data Sources
+
+- U.S. Census Bureau: state population, population density, % of population in poverty, median household income, and Diversity Index.
+
+--
+
+- U.S. Department of Justice: number of bias types covered by each state's hate crime laws.
+
+--
+
+- World Population Review: state Political Voting Index (PVI).
+
+--
+
+- Human Rights Campaign: State Equality Index (SEI).
+
+--
+
+- Movement Advancement Project: state LGBTQ+ hate crime law protections.
+
+--
+
+- American Civil Liberties Union: state-level anti-LGBTQ+ bills introduced.
+
+---
+## Simple Correlation Analysis: All Crimes
+
+&lt;div style="float: left; width: 65%;"&gt;
+&lt;img src="AllCrimesCorrelations.png" style="width: 100%;" /&gt; 
+&lt;/div&gt;
+&lt;div style="float: left; width: 35%;"&gt;
+
+Higher hate crime reports per 100,000 residents for: 
+  &lt;ul&gt;
+    &lt;li&gt;&lt;b&gt;Higher&lt;/b&gt; population density&lt;/li&gt;
+    &lt;li&gt;&lt;b&gt;Higher&lt;/b&gt; median household income&lt;/li&gt;
+    &lt;li&gt;&lt;b&gt;Lower&lt;/b&gt; PVI (more Democratic)&lt;/li&gt;
+    &lt;li&gt;&lt;b&gt;Higher&lt;/b&gt; hate crime law bias coverage&lt;/li&gt;
+    &lt;li&gt;&lt;b&gt;Higher&lt;/b&gt; diversity index (more racial/ethnic diversity)&lt;/li&gt;
+    &lt;li&gt;&lt;b&gt;Higher&lt;/b&gt; percent in poverty, although this effect is very low&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+
+---
+class: small-text
+## Simple Correlation Analysis: Anti-LGBTQ+ Crimes
+
+&lt;div style="float: left; width: 65%;"&gt;
+&lt;img src="AntiLGBTQCorrelations.png" style="width: 100%;" /&gt; 
+&lt;/div&gt;
+&lt;div style="float: left; width: 35%;"&gt;
+Higher anti-LGBTQ+ hate crime reports per 100,000 residents for: 
+  &lt;ul&gt;
+    &lt;li&gt;&lt;b&gt;Higher&lt;/b&gt; population density&lt;/li&gt;
+    &lt;li&gt;&lt;b&gt;Higher&lt;/b&gt; median household income&lt;/li&gt;
+    &lt;li&gt;&lt;b&gt;Higher&lt;/b&gt; percent in poverty&lt;/li&gt;
+    &lt;li&gt;&lt;b&gt;Lower&lt;/b&gt; PVI (more Democratic)&lt;/li&gt;
+    &lt;li&gt;&lt;b&gt;Higher&lt;/b&gt; diversity index (more racial/ethnic diversity)&lt;/li&gt; 
+    &lt;li&gt;&lt;b&gt;Higher&lt;/b&gt; hate crime law bias coverage&lt;/li&gt;
+    &lt;li&gt;&lt;b&gt;Higher&lt;/b&gt; SEI (more LGBTQ+ legal protection)&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+
+---
+class: inverse
+# Conclusions from the Correlation Analysis
+
+States with a more Democratic-leaning PVI, states with higher LGBTQ+ legal equality, and states with stronger hate crime protections report higher numbers of hate crimes per 100,000 residents. 
+
+This is likely because such states tend to have more robust hate crime reporting procedures than Republican-leaning states with low LGBTQ+ equality and hate crime protections.
+
+---
+## Lasso Regression Model: All Crimes
+
+Dependent variable: Incidents per 100,000 Residents
+
+R&lt;sup&gt;2&lt;/sup&gt;: 0.788
+
+.pull-left[&lt;table&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Predictor&lt;/th&gt;
+    &lt;th&gt;Coefficient&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Population Density&lt;/td&gt;
+    &lt;td&gt;2.324&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Median Household Income&lt;/td&gt;
+    &lt;td&gt;1.533&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Percent in Poverty&lt;/td&gt;
+    &lt;td&gt;0.601&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Diversity Index&lt;/td&gt;
+    &lt;td&gt;-0.415&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;PVI&lt;/td&gt;
+    &lt;td&gt;-0.003&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Hate Crime Law Bias Coverage&lt;/td&gt;
+    &lt;td&gt;-0.000&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;]
+
+--
+
+.pull-right[Higher hate crime reports per 100,000 residents for: 
+
+- **Higher** population density 
+- **Higher** median household income 
+- **Higher** percent in poverty 
+- **Lower** diversity index (less racial/ethnic diversity) 
+- **Lower** PVI (more Democratic), although this effect is very low]
+
+---
+class: small-text
+## Lasso Regression Model: Anti-LGBTQ+ Crimes
+
+Dependent variable: Incidents per 100,000 Residents
+
+R&lt;sup&gt;2&lt;/sup&gt;: 0.838
+
+.pull-left[&lt;table&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Predictor&lt;/th&gt;
+    &lt;th&gt;Coefficient&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Population Density&lt;/td&gt;
+    &lt;td&gt;0.722&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Median Household Income&lt;/td&gt;
+    &lt;td&gt;0.509&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Percent in Poverty&lt;/td&gt;
+    &lt;td&gt;0.210&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;PVI&lt;/td&gt;
+    &lt;td&gt;0.192&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;SEI&lt;/td&gt;
+    &lt;td&gt;0.167&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Diversity Index&lt;/td&gt;
+    &lt;td&gt;-0.154&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Hate Crime Law Bias Coverage&lt;/td&gt;
+    &lt;td&gt;-0.026&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;AntiLGBTQ Legislation&lt;/td&gt;
+    &lt;td&gt;-0.003&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;LGBTQ Hate Crime Coverage&lt;/td&gt;
+    &lt;td&gt;-0.000&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;]
+
+--
+
+.pull-right[Higher anti-LGBTQ+ hate crime reports per 100,000 residents for: 
+
+- **Higher** population density 
+- **Higher** median household income 
+- **Higher** percent in poverty 
+- **Higher** PVI (more Republican) 
+- **Higher** SEI (more LGBTQ+ legal protection) 
+- **Lower** diversity index (less racial/ethnic diversity) 
+- **Lower** hate crime law bias coverage]
+
+---
+class: inverse
+# Results &amp; Interpretations
+
+Across these models, higher hate crime reports per 100,000 residents are generally associated with: 
+- Higher population density 
+- Higher median household income 
+- Higher percent in poverty 
+- Lower diversity index (less racial/ethnic diversity) 
+- Lower hate crime law bias coverage
+
+--
+
+These relationships suggest potential methods for addressing hate crimes, including lowering poverty rates and increasing the biases covered by hate crime laws. 
+
+---
+class: small-text
+# Implications
+
+Stakeholders in this research include LGBTQ+ Americans, legislators and policymakers, law enforcement, lawyers and activist organizations. Additionally, all American citizens are impacted by these incidents because the proliferation of hate-motivated crimes threatens individual/group safety and national unity. This issue affects everyone.
+
+--
+
+Understanding the factors which correlate with anti-LGBTQ+ hate crimes is necessary for implementing effective preventative and protective measures. Without this understanding, the rate of these incidents will continue to rise.
+
+--
+
+Based on this research, such preventative measures may include:
+-	Improving reporting procedures and mandating reporting of hate crimes to the FBI
+-	Decreasing poverty rates
+-	Increasing the coverage of hate crime laws
+- Building compassion by learning with and about people of different religions, races, sexualities, opinions, and more
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+  "highlightStyle": "github",
+  "highlightLines": true,
+  "countIncrementalSlides": false,
+  "ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
