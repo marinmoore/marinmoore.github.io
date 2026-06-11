@@ -79,7 +79,7 @@
 								
 							<section class="col-6 col-12-narrower">
 								<article id="content1">
-									<p style="color:#F25B77"><b>Categorical columns:</b></p>
+									<b style="color:#F25B77">Categorical columns:</b>
 									<ul>
 										<li><td>sex</td>: Sex</li>
 										<li>region: The client's geographical region</li>
@@ -106,7 +106,7 @@
 							</section>
 							<section class="col-6 col-12-narrower">
 								<article id="content1">
-									<p style="color:#F25B77"><b>Numerical columns:</b></p>
+									<b style="color:#F25B77">Numerical columns:</b>
 									<ul>
 										<li>age: Age of the client (years)</li>
 										<li>log_income: Logarithm of annual income (USD)</li>
@@ -185,7 +185,7 @@
 						<div class="row">
 							<section class="col-6 col-12-narrower">
 								<article id="content3">
-									<p style="color:#F25B77"><b>Correlations among predictors (>= 0.4) which can be intuitively explained:</b></p>
+									<b style="color:#F25B77">Correlations among predictors (>= 0.4) which can be intuitively explained:</b>
 									<p>Among health conditions and risks:</p>
 									<ul>
 										<li>chronic_count with risk_score (0.7): clients with chronic conditions are higher risk.</li>
@@ -204,7 +204,7 @@
 							</section>
 							<section class="col-6 col-12-narrower">
 								<a class="image featured"><img src="images/heatmap.png" alt="" /></a>
-								<p style="color:#F25B77"><b>Correlations between the response and predictors:</b></p>
+								<b style="color:#F25B77">Correlations between the response and predictors:</b>
 									<ul>
 										<li>log_annual_cost has its strongest correlations (>=0.3) with risk_score (0.4), and chronic_count (0.3), suggesting that these are the most important numeric predictors to include in a model.</li>
 										<li>log_annual_cost has weaker correlations (=0.2) with age, systolic_bp, and hypertension, suggesting that these would also be useful predictors for modeling.</li>
@@ -312,11 +312,11 @@
 							</section>
 							<section class="col-6 col-12-narrower">
 								<article id="content3">
-									<p style="color:#F25B77">Interpretation</p>
+									<b style="color:#F25B77">Interpretation</b>
 									<ul>
 										<p>Mean R^2 from cross-validation: 0.168. On average, a linear regression model explains about 16.8% of the out of sample variation in log annual medical costs. Although seemingly low, this is actually a reasonable value for medical cost regressions since it is a difficult target to predict.</p>
 									</ul>
-									<p style="color:#F25B77">Main Coefficients</p>
+									<b style="color:#F25B77">Main Coefficients</b>
 									<ul>
 										<li>The coefficients for clients who formerly and never smoked are drastically negative (-0.313 and -0.458). This tells us that smoking is a key contributer to higher medical costs in comparison to the last variable of smoking, which is current smoker.</li>
 										<li>Each chronic condition a client has increases log annual medical cost drastically (0.458 log(USD) per chronic condition).</li>
