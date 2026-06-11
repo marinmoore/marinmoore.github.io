@@ -76,7 +76,7 @@
 								<p>Sourced from <a href="https://www.kaggle.com/datasets/mohankrishnathalla/medical-insurance-cost-prediction">Kaggle</a>, the medical insurance dataset contains 54 demographic, clinical, and insurance features for 100,000 clients.</p>
 								<p>The goal of this analysis is to perform regression modeling to predict clients' annual medical costs based on the demographic, clinical, and insurance features provided in the dataset.</p>
 								<p>After removing predictors which are unnecessary or would create data leakage, removing rows with anomalous data, and log-transforming skewed predictors, the dataset includes 96,956 clients and the following 36 features:</p>
-								<div class="row">
+								
 							<section class="col-6 col-12-narrower">
 								<article id="content1">
 									<h4>Categorical columns:</h4>
@@ -163,9 +163,12 @@
 								<a class="image featured"><img src="images/numerical.png" alt="" /></a>
 							</section>
 						<p>Only the plots for household_size, deductible, chronic_count, log_income, age, and risk_score are included here to represent the various relationship patterns between numerical predictors and log_annual_cost.</p>
-						<header>
-							<h3>Binary Predictors</h3>
-						</header>
+						</div>
+								
+						<div class="row">
+							<header>
+								<h3>Binary Predictors</h3>
+							</header>
 							<section class="col-6 col-12-narrower">
 								<a class="image featured"><img src="images/binary.png" alt="" /></a>
 							</section>
