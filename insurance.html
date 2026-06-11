@@ -222,7 +222,7 @@
 						</div>
 						
 						<div class="row">
-								<p>A lasso regression model pushed the coefficients of 21 predictors and dummy variables for categorical predictors to 0, suggesting that these are not useful predictors for a linear regression model. Many other predictors have coefficients close to 0, so the linear regression model will keep the following 15 predictors which had coefficients for which the absolute value is >= 0.01: chronic_count, age, risk_score, bmi, diabetes, copd, chronic_count*diabetes, chronic_count*arthritis, risk_score*copd, chronic_count*hypertension, risk_score*diabetes, chronic_count*mental_health, risk_score*age, risk_score*chronic_count, and smoker.</p>
+								<p style="margin-bottom: 0px;">A lasso regression model pushed the coefficients of 21 predictors and dummy variables for categorical predictors to 0, suggesting that these are not useful predictors for a linear regression model. Many other predictors have coefficients close to 0, so the linear regression model will keep the following 15 predictors which had coefficients for which the absolute value is >= 0.01: chronic_count, age, risk_score, bmi, diabetes, copd, chronic_count*diabetes, chronic_count*arthritis, risk_score*copd, chronic_count*hypertension, risk_score*diabetes, chronic_count*mental_health, risk_score*age, risk_score*chronic_count, and smoker.</p>
 								<p>The predictors arthritis, hypertension, and mental_health will also be included in the linear regression model since they are used in the significant interaction terms, although they are not significant themselves.</p>
 								<p>Using 5-fold cross-validation, the mean R^2 of the model is 0.168. On average, the model explains about 16.8% of the out-of-sample variation in log annual medical costs. Although seemingly low, this is actually a reasonable value for medical cost regressions since it is a difficult target to predict.</p>
 								<p>Retraining the linear regression model on all observations in the dataset produces the following model:</p>
@@ -323,13 +323,8 @@
 									<p>The predictors with the greatest negative effect on log annual medical cost are smoker_Never and smoker_Former, suggesting that current smokers have much higher log annual medical costs than clients who never or formerly smoked.</p>
 									<p>The effect of specific health conditions on log annual medical cost is noticeable: clients with copd are expected to have 0.140 higher log annual medical costs than clients who do not, and clients with diabetes are expected to have 0.112 higher log annual medical costs than clients who do not. This suggests that a client's medical history is useful for predicting their log annual medical costs.</p>
 									<p>Although the coefficient for age is small (0.009), its effect is noticeable since the log annual medical costs for a 70-year-old client are expected to be 0.468 log(USD) (0.009*70 - 0.009*18) higher than those for an 18-year-old client.</p>	
-									<p>Overall, this model suggests that health insurance companies should use a client's medical history - including their chronic conditions, smoker status, health condition history - and age to predict their annual medical costs to determine the cost that client would pose to the insurance company.</p>	
-									<p>Mean R^2 from cross-validation: 0.168. On average, a linear regression model explains about 16.8% of the out of sample variation in log annual medical costs. Although seemingly low, this is actually a reasonable value for medical cost regressions since it is a difficult target to predict.</p>
-								</article>
 							</section>
-						<header>
-							<h3>Predictor Correlations</h3>
-						</header>
+						<p>Overall, this model suggests that health insurance companies should use a client's medical history - including their chronic conditions, smoker status, health condition history - and age to predict their annual medical costs to determine the cost that client would pose to the insurance company.</p>	
 						</div>
 					</article>
 				</div>
