@@ -75,52 +75,56 @@
 								</header>
 								<p>Sourced from <a href="https://www.kaggle.com/datasets/mohankrishnathalla/medical-insurance-cost-prediction">Kaggle</a>, the medical insurance dataset contains 54 demographic, clinical, and insurance features for 100,000 clients.</p>
 								<p>The goal of this analysis is to perform regression modeling to predict clients' annual medical costs based on the demographic, clinical, and insurance features provided in the dataset.</p>
-								<p>After removing predictors which are unnecessary or would create data leakage, removing rows with anomalous data, and log-transforming skewed predictors, the dataset includes 96,956 clients and the following 36 features:. </p>
+								<p>After removing predictors which are unnecessary or would create data leakage, removing rows with anomalous data, and log-transforming skewed predictors, the dataset includes 96,956 clients and the following 36 features:.</p>
 								<div class="row">
 							<section class="col-6 col-12-narrower">
 								<article id="content1">
-									<p>Categorical columns:
-										- sex: Sex ["Female", "Male", "Other"]
-										- region: The client's geographical region ["Central", "East", "North", "South", "West"]
-										- urban_rural: Whether the client lives in an Urban, Suburban, or Rural area
-										- education: The client's highest attained education ["No HS", "HS", "Some College", "Bachelors", "Masters", "Doctorate"]
-										- marital_status: Marital status ["Single", "Married", "Divorced", "Widowed"]
-										- employment_status: Employment type/status ["Employed", "Self-employed", "Unemployed", "Retired"]
-										- smoker: Smoking status ["Current", "Former", "Never"]
-										- alcohol_freq: Freuqency of alcohol consumption ["None", "Occasional", "Weekly", "Daily"]
-										- plan_type: Type of insurance plan ["EPO", "HMP", "POS", "PPO"]
-										- network_tier: Insurance network tier ["Bronze", "Silver", "Gold", "Platinum"]
-										- hypertension: Hypertension diagnosed (0=No, 1=Yes)
-										- diabetes: Diabetes diagnosed (0=No, 1=Yes)
-										- asthma: Asthma diagnosed (0=No, 1=Yes)
-										- copd: Chronic Obstructive Pulmonary Disease diagnosed (0=No, 1=Yes)
-										- cardiovascular_disease: Cardiovascular disease diagnosed (0=No, 1=Yes)
-										- cancer_history: History of cancer (0=No, 1=Yes)
-										- kidney_disease: Kidney disease diagnosed (0=No, 1=Yes)
-										- liver_disease: Liver Disease diagnosed (0=No, 1=Yes)
-										- arthritis: Arthrisis diagnosed (0=No, 1=Yes)
-										- mental_health: Diagnosed mental health condition (0=No, 1=Yes)</p>
+									<p>Categorical columns:</p>
+									<ul>
+										<li>sex: Sex ["Female", "Male", "Other"]</li>
+										<li>region: The client's geographical region ["Central", "East", "North", "South", "West"]</li>
+										<li>urban_rural: Whether the client lives in an Urban, Suburban, or Rural area</li>
+										<li>education: The client's highest attained education ["No HS", "HS", "Some College", "Bachelors", "Masters", "Doctorate"]</li>
+										<li>marital_status: Marital status ["Single", "Married", "Divorced", "Widowed"]</li>
+										<li>employment_status: Employment type/status ["Employed", "Self-employed", "Unemployed", "Retired"]</li>
+										<li>smoker: Smoking status ["Current", "Former", "Never"]</li>
+										<li>alcohol_freq: Freuqency of alcohol consumption ["None", "Occasional", "Weekly", "Daily"]</li>
+										<li>plan_type: Type of insurance plan ["EPO", "HMP", "POS", "PPO"]</li>
+										<li>network_tier: Insurance network tier ["Bronze", "Silver", "Gold", "Platinum"]</li>
+										<li>hypertension: Hypertension diagnosed (0=No, 1=Yes)</li>
+										<li>diabetes: Diabetes diagnosed (0=No, 1=Yes)</li>
+										<li>asthma: Asthma diagnosed (0=No, 1=Yes)</li>
+										<li>copd: Chronic Obstructive Pulmonary Disease diagnosed (0=No, 1=Yes)</li>
+										<li>cardiovascular_disease: Cardiovascular disease diagnosed (0=No, 1=Yes)</li>
+										<li>cancer_history: History of cancer (0=No, 1=Yes)</li>
+										<li>kidney_disease: Kidney disease diagnosed (0=No, 1=Yes)</li>
+										<li>liver_disease: Liver Disease diagnosed (0=No, 1=Yes)</li>
+										<li>arthritis: Arthrisis diagnosed (0=No, 1=Yes)</li>
+										<li>mental_health: Diagnosed mental health condition (0=No, 1=Yes)</li>
+									</ul>ul>
 								</article>
 							</section>
 							<section class="col-6 col-12-narrower">
 								<article id="content1">
-									<p>Numerical columns:
-										- age: Age of the client (0-100 years)
-										- log_income: Logarithm of annual income (USD)
-										- household_size: Number of people in the client's household
-										- dependents: Number of the client's financial dependents
-										- bmi: Body Mass Index
-										- systolic_bp: Systolic blood pressure (mmHg)
-										- diastolic_bp: Diastolic blood pressure (mmHg)
-										- ldl: LDL cholesterol level (mg/dL)
-										- hba1c: Hemoglobin A1c percentage
-										- deductible: Annual deductible (USD)
-										- copay: Copayment amount per healthcare service (USD)
-										- policy_term_years: Length of the insurance policy (1-10 years)
-										- provider_quality: Quality rating of the primary care provider/insurer (1.5-5, presumably rated on a scale 0-5)
-										- risk_score: Calculated health risk score (0-1, normalized)
-										- chronic_count: Number of chronic conditions diagnosed (0-6)
-										- log_annual_cost: Logarithm of total annual medical cost (USD) - The variable of interest</p>
+									<p>Numerical columns:</p>
+									<ul>
+										<li>age: Age of the client (0-100 years)</li>
+										<li>log_income: Logarithm of annual income (USD)</li>
+										<li>household_size: Number of people in the client's household</li>
+										<li>dependents: Number of the client's financial dependents</li>
+										<li>bmi: Body Mass Index</li>
+										<li>systolic_bp: Systolic blood pressure (mmHg)</li>
+										<li>diastolic_bp: Diastolic blood pressure (mmHg)</li>
+										<li>ldl: LDL cholesterol level (mg/dL)</li>
+										<li>hba1c: Hemoglobin A1c percentage</li>
+										<li>deductible: Annual deductible (USD)</li>
+										<li>copay: Copayment amount per healthcare service (USD)</li>
+										<li>policy_term_years: Length of the insurance policy (1-10 years)</li>
+										<li>provider_quality: Quality rating of the primary care provider/insurer (1.5-5, presumably rated on a scale 0-5)</li>
+										<li>risk_score: Calculated health risk score (0-1, normalized)</li>
+										<li>chronic_count: Number of chronic conditions diagnosed (0-6)</li>
+										<li>log_annual_cost: Logarithm of total annual medical cost (USD) - The variable of interest</li>
+									</ul>
 								</article>
 							</section>
 						</div>
@@ -138,15 +142,19 @@
 						<div class="row">
 							<section class="col-6 col-12-narrower">
 								<article id="content3">
-									<p>For the discrete numerical predictors:
-										- household_size and dependents appear to have no relationship to log (annual medical cost) since the distribution of log_annual_cost decreases in variance around the mean/median value as the predictor values increase and thus become less common.
-										- deductible, copay, and policy_term_years appear to have no relationship to log(annual medical cost) since the distribution of log_annual_cost is uniform across all values for those predictors.
-										- chronic_count may have some very weak relationship with log(annual medical cost) because the distribution of log_annual_cost appears to skew above the mean/median value as the predictor values increase.
-										For the continuous numerical predictors:
-										- log_income, ldl, and provider_quality have no correlation with log(annual medical cost).
-										- age, systolic_bp, diastolic_bp, and hba1c appear to have very weak positive correlations with log(annual medical cost).
-										- risk_score has a noticeable but weak positive correlation with log(annual medical cost).
-										Only the plots for household_size, deductible, chronic_count, log_income, age, and risk_score are included here to represent the various relationship patterns between numerical predictors and log_annual_cost.</p>
+									<p>For the discrete numerical predictors:</p>
+									<ul>
+										<li>household_size and dependents appear to have no relationship to log (annual medical cost) since the distribution of log_annual_cost decreases in variance around the mean/median value as the predictor values increase and thus become less common.</li>
+										<li>deductible, copay, and policy_term_years appear to have no relationship to log(annual medical cost) since the distribution of log_annual_cost is uniform across all values for those predictors.</li>
+										<li>chronic_count may have some very weak relationship with log(annual medical cost) because the distribution of log_annual_cost appears to skew above the mean/median value as the predictor values increase.</li>
+									</ul>
+									<p>For the continuous numerical predictors:</p>
+									<ul>
+										<li>log_income, ldl, and provider_quality have no correlation with log(annual medical cost).</li>
+										<li>age, systolic_bp, diastolic_bp, and hba1c appear to have very weak positive correlations with log(annual medical cost).</li>
+										<li>risk_score has a noticeable but weak positive correlation with log(annual medical cost).</li>
+									</ul>
+									<p>Only the plots for household_size, deductible, chronic_count, log_income, age, and risk_score are included here to represent the various relationship patterns between numerical predictors and log_annual_cost.</p>
 								</article>
 							</section>
 							<section class="col-6 col-12-narrower">
@@ -163,8 +171,8 @@
 							</section>
 							<section class="col-6 col-12-narrower">
 								<article id="content3">
-									<p>All binary predictors appear to have a minor relationship with annual medical cost because, for each predictor, clients who had the condition had a noticeably lower minimum, 25th percentile, median, 75th percentile, and maximum log(Annual Medical Cost) (ignoring outliers) than clients without the condition. The difference in median log(Aunnual Medical Cost) between clients who had and did not have each condition is about equal, suggesting that all binary predictors could be a useful for modeling.
-										Only the boxplot for hypertension is included here to represent the relationship between all binary predictors and log_annual_cost.</p>
+									<p>All binary predictors appear to have a minor relationship with annual medical cost because, for each predictor, clients who had the condition had a noticeably lower minimum, 25th percentile, median, 75th percentile, and maximum log(Annual Medical Cost) (ignoring outliers) than clients without the condition. The difference in median log(Aunnual Medical Cost) between clients who had and did not have each condition is about equal, suggesting that all binary predictors could be a useful for modeling.</p>
+									<p>Only the boxplot for hypertension is included here to represent the relationship between all binary predictors and log_annual_cost.</p>
 								</article>
 							</section>
 						<header>
@@ -175,21 +183,26 @@
 						<div class="row">
 							<section class="col-6 col-12-narrower">
 								<article id="content3">
-									<p>Correlations among predictors (>= 0.4) which can be intuitively explained:
-										Among health conditions and risks:
-										- chronic_count with risk_score (0.7): clients with chronic conditions are higher risk.
-										- chronic_count and risk_score with nearly all of the health conditions (hypertension, diabetes, etc.): many of those conditions are chronic and increase clients' health risks.
-										- diabetes and hba1c (0.8): diabetes is characterized by high hba1c.
-										- age with risk score (0.7) and systolic_bp (0.5): older people typically have more health risks and have higher risk of high blood pressure.
-										- hypertension with systolic_bp (0.6) and diastolic_bp (0.6): hypertension is high blood pressure.
-										- systolic_bp and diastolic_bp (0.4): higher pressure when the blood is pumped out of the heart (systolic pressure) is often accompanied by higher pressure when the blood is filling the heart (diastolic pressure).
-										Among healthcare/insurance factors:
-										- household_size and dependents (0.9): people living in the same household as the client (especially children) are typically their dependents.
-										When modeling with these combinations of predictors, we should include interaction terms, use regularization methods, or tree-based methods to properly handle the correlations.
-
-										Correlations between the response and predictors:
-										- log_annual_cost has its strongest correlations (>=0.3) with risk_score (0.4), and chronic_count (0.3), suggesting that these are the most important numeric predictors to include in a model.
-										- log_annual_cost has weaker correlations (=0.2) with age, systolic_bp, and hypertension, suggesting that these would also be useful predictors for modeling.</p>
+									<p>Correlations among predictors (>= 0.4) which can be intuitively explained:</p>
+									<p>Among health conditions and risks:</p>
+									<ul>
+										<li>chronic_count with risk_score (0.7): clients with chronic conditions are higher risk.</li>
+										<li>chronic_count and risk_score with nearly all of the health conditions (hypertension, diabetes, etc.): many of those conditions are chronic and increase clients' health risks.</li>
+										<li>diabetes and hba1c (0.8): diabetes is characterized by high hba1c.</li>
+										<li>age with risk score (0.7) and systolic_bp (0.5): older people typically have more health risks and have higher risk of high blood pressure.</li>
+										<li>hypertension with systolic_bp (0.6) and diastolic_bp (0.6): hypertension is high blood pressure.</li>
+										<li>systolic_bp and diastolic_bp (0.4): higher pressure when the blood is pumped out of the heart (systolic pressure) is often accompanied by higher pressure when the blood is filling the heart (diastolic pressure).</li>
+									</ul>
+									<p>Among healthcare/insurance factors:</p>
+									<ul>
+										<li>household_size and dependents (0.9): people living in the same household as the client (especially children) are typically their dependents.</li>
+									</ul>
+									<p>When modeling with these combinations of predictors, we should include interaction terms, use regularization methods, or tree-based methods to properly handle the correlations.</p>
+									<p>Correlations between the response and predictors:</p>
+									<ul>
+										<li>log_annual_cost has its strongest correlations (>=0.3) with risk_score (0.4), and chronic_count (0.3), suggesting that these are the most important numeric predictors to include in a model.</li>
+										<li>log_annual_cost has weaker correlations (=0.2) with age, systolic_bp, and hypertension, suggesting that these would also be useful predictors for modeling.</li>
+									</ul>
 								</article>
 							</section>
 							<section class="col-6 col-12-narrower">
@@ -201,8 +214,8 @@
 									<h2>Model Development</h2>
 									<h3>Linear Regression</h3>
 								</header>
-								<p>A lasso regression model pushed the coefficients of 21 predictors and dummy variables for categorical predictors to 0, suggesting that these are not useful predictors for a linear regression model. Many other predictors have coefficients close to 0, so the linear regression model will keep the following 15 predictors which had coefficients for which the absolute value is >= 0.01: chronic_count, age, risk_score, bmi, diabetes, copd, chronic_count*diabetes, chronic_count*arthritis, risk_score*copd, chronic_count*hypertension, risk_score*diabetes, chronic_count*mental_health, risk_score*age, risk_score*chronic_count, and smoker.
-									The predictors arthritis, hypertension, and mental_health will also be included in the linear regression model since they are used in the significant interaction terms, although they are not significant themselves.</p>
+								<p>A lasso regression model pushed the coefficients of 21 predictors and dummy variables for categorical predictors to 0, suggesting that these are not useful predictors for a linear regression model. Many other predictors have coefficients close to 0, so the linear regression model will keep the following 15 predictors which had coefficients for which the absolute value is >= 0.01: chronic_count, age, risk_score, bmi, diabetes, copd, chronic_count*diabetes, chronic_count*arthritis, risk_score*copd, chronic_count*hypertension, risk_score*diabetes, chronic_count*mental_health, risk_score*age, risk_score*chronic_count, and smoker.</p>
+								<p>The predictors arthritis, hypertension, and mental_health will also be included in the linear regression model since they are used in the significant interaction terms, although they are not significant themselves.</p>
 
 						<div class="row">
 							<section class="col-6 col-12-narrower">
@@ -297,13 +310,17 @@
 							</section>
 							<section class="col-6 col-12-narrower">
 								<article id="content3">
-									<p>Interpretation
-										- Mean R^2 from cross-validation: 0.168. On average, a linear regression model explains about 16.8% of the out of sample variation in log annual medical costs. Although seemingly low, this is actually a reasonable value for medical cost regressions since it is a difficult target to predict.
-										Main Coefficients
-										- The coefficients for clients who formerly and never smoked are drastically negative (-0.313 and -0.458). This tells us that smoking is a key contributer to higher medical costs in comparison to the last variable of smoking, which is current smoker.
-										- Each chronic condition a client has increases log annual medical cost drastically (0.458 log(USD) per chronic condition).
-										- Risk score increases are associated with higher medical costs (0.252 higher log annual medical cost for clients with a risk score of 1 compared to clients with a risk score of 0).
-										- Age has a surprisingly small coefficient, telling us that with age, log annual medical cost increases slowly (0.008 log(USD) per 1 year increase in age).</p>
+									<p>Interpretation</p>
+									<ul>
+										<li>Mean R^2 from cross-validation: 0.168. On average, a linear regression model explains about 16.8% of the out of sample variation in log annual medical costs. Although seemingly low, this is actually a reasonable value for medical cost regressions since it is a difficult target to predict.</li>
+									</ul>
+									<p>Main Coefficients</p>
+									<ul>
+										<li>The coefficients for clients who formerly and never smoked are drastically negative (-0.313 and -0.458). This tells us that smoking is a key contributer to higher medical costs in comparison to the last variable of smoking, which is current smoker.</li>
+										<li>Each chronic condition a client has increases log annual medical cost drastically (0.458 log(USD) per chronic condition).</li>
+										<li>Risk score increases are associated with higher medical costs (0.252 higher log annual medical cost for clients with a risk score of 1 compared to clients with a risk score of 0).</li>
+										<li>Age has a surprisingly small coefficient, telling us that with age, log annual medical cost increases slowly (0.008 log(USD) per 1 year increase in age).</p>
+									</ul>
 								</article>
 							</section>
 						<header>
