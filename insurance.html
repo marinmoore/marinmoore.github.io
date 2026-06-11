@@ -225,7 +225,8 @@
 						<div class="row">
 								<p>A lasso regression model pushed the coefficients of 21 predictors and dummy variables for categorical predictors to 0, suggesting that these are not useful predictors for a linear regression model. Many other predictors have coefficients close to 0, so the linear regression model will keep the following 15 predictors which had coefficients for which the absolute value is >= 0.01: chronic_count, age, risk_score, bmi, diabetes, copd, chronic_count*diabetes, chronic_count*arthritis, risk_score*copd, chronic_count*hypertension, risk_score*diabetes, chronic_count*mental_health, risk_score*age, risk_score*chronic_count, and smoker.</p>
 								<p>The predictors arthritis, hypertension, and mental_health will also be included in the linear regression model since they are used in the significant interaction terms, although they are not significant themselves.</p>
-
+								<p>Using 5-fold cross-validation, the mean R^2 of the model is 0.168. On average, the model explains about 16.8% of the out-of-sample variation in log annual medical costs. Although seemingly low, this is actually a reasonable value for medical cost regressions since it is a difficult target to predict.</p>
+								<p>Retraining the linear regression model on all observations in the dataset produces the following model:</p>
 							<section class="col-6 col-12-narrower">
 								<article id="content3">
 									<table style="border:1px solid #52575c;border-collapse:collapse;">
@@ -234,84 +235,84 @@
   										    <th style="border:1px solid #52575c; padding-left: 10px"><b>Coefficient</b></th>
   										</tr>
   										<tr>
-  										    <td style="border:1px solid #52575c; padding-left: 10px">chronic_count</td>
-  										    <td style="border:1px solid #52575c; padding-left: 10px">0.457581</td>
-    									</tr>
-										<tr>
-  										    <td style="border:1px solid #52575c; padding-left: 10px">risk_score</td>
-  										    <td style="border:1px solid #52575c; padding-left: 10px">0.252727</td>
-    									</tr>
-										<tr>
-  										    <td style="border:1px solid #52575c; padding-left: 10px">copd</td>
-  										    <td style="border:1px solid #52575c; padding-left: 10px">0.138358</td>
-    									</tr>
-										<tr>
-  										    <td style="border:1px solid #52575c; padding-left: 10px">diabetes</td>
-  										    <td style="border:1px solid #52575c; padding-left: 10px">0.111011</td>
-    									</tr>
-										<tr>
-  										    <td style="border:1px solid #52575c; padding-left: 10px">mental_health</td>
-  										    <td style="border:1px solid #52575c; padding-left: 10px">0.061628</td>
-    									</tr>
-										<tr>
-  										    <td style="border:1px solid #52575c; padding-left: 10px">arthritis</td>
-  										    <td style="border:1px solid #52575c; padding-left: 10px">0.054312</td>
-    									</tr>
-										<tr>
-  										    <td style="border:1px solid #52575c; padding-left: 10px">hypertension</td>
-  										    <td style="border:1px solid #52575c; padding-left: 10px">0.046657</td>
-    									</tr>
-										<tr>
-  										    <td style="border:1px solid #52575c; padding-left: 10px">bmi</td>
-  										    <td style="border:1px solid #52575c; padding-left: 10px">0.011475</td>
-    									</tr>
-										<tr>
-  										    <td style="border:1px solid #52575c; padding-left: 10px">age</td>
-  										    <td style="border:1px solid #52575c; padding-left: 10px">0.008577</td>
-    									</tr>
-										<tr>
-  										    <td style="border:1px solid #52575c; padding-left: 10px">risk_score*age</td>
-  										    <td style="border:1px solid #52575c; padding-left: 10px">-0.002962</td>
-    									</tr>
-										<tr>
-  										    <td style="border:1px solid #52575c; padding-left: 10px">risk_score</td>
-  										    <td style="border:1px solid #52575c; padding-left: 10px">0.252727</td>
-    									</tr>
-										<tr>
-  										    <td style="border:1px solid #52575c; padding-left: 10px">chronic_count*diabetes</td>
-  										    <td style="border:1px solid #52575c; padding-left: 10px">-0.014421</td>
-    									</tr>
-										<tr>
-  										    <td style="border:1px solid #52575c; padding-left: 10px">chronic_count*hypertension</td>
-  										    <td style="border:1px solid #52575c; padding-left: 10px">-0.028496</td>
-    									</tr>
-										<tr>
-  										    <td style="border:1px solid #52575c; padding-left: 10px">chronic_count*arthritis</td>
-  										    <td style="border:1px solid #52575c; padding-left: 10px">-0.030559</td>
-    									</tr>
-										<tr>
-  										    <td style="border:1px solid #52575c; padding-left: 10px">chronic_count*mental_health</td>
-  										    <td style="border:1px solid #52575c; padding-left: 10px">-0.037021</td>
-    									</tr>
-										<tr>
-  										    <td style="border:1px solid #52575c; padding-left: 10px">risk_score*diabetes</td>
-  										    <td style="border:1px solid #52575c; padding-left: 10px">-0.129977</td>
-    									</tr>
-										<tr>
-  										    <td style="border:1px solid #52575c; padding-left: 10px">risk_score*copd</td>
-  										    <td style="border:1px solid #52575c; padding-left: 10px">-0.154252</td>
-    									</tr>
-										<tr>
-  										    <td style="border:1px solid #52575c; padding-left: 10px">risk_score*chronic_count</td>
-  										    <td style="border:1px solid #52575c; padding-left: 10px">-0.156308</td>
-    									</tr>
-										<tr>
-  										    <td style="border:1px solid #52575c; padding-left: 10px">smoker_Former</td>
-  										    <td style="border:1px solid #52575c; padding-left: 10px">-0.313058</td>
+  										    <td style="border:1px solid #52575c; padding-left: 10px">Intercept</td>
+  										    <td style="border:1px solid #52575c; padding-left: 10px">7.004249</td>
     									</tr>
 										<tr>
   										    <td style="border:1px solid #52575c; padding-left: 10px">smoker_Never</td>
-  										    <td style="border:1px solid #52575c; padding-left: 10px">-0.457670</td>
+  										    <td style="border:1px solid #52575c; padding-left: 10px">-0.464959</td>
+    									</tr>
+										<tr>
+  										    <td style="border:1px solid #52575c; padding-left: 10px">chronic_count</td>
+  										    <td style="border:1px solid #52575c; padding-left: 10px">0.452461</td>
+    									</tr>
+										<tr>
+  										    <td style="border:1px solid #52575c; padding-left: 10px">smoker_Former</td>
+  										    <td style="border:1px solid #52575c; padding-left: 10px">-0.316041</td>
+    									</tr>
+										<tr>
+  										    <td style="border:1px solid #52575c; padding-left: 10px">risk_score</td>
+  										    <td style="border:1px solid #52575c; padding-left: 10px">0.246330</td>
+    									</tr>
+										<tr>
+  										    <td style="border:1px solid #52575c; padding-left: 10px">risk_score*copd</td>
+  										    <td style="border:1px solid #52575c; padding-left: 10px">-0.161013</td>
+    									</tr>
+										<tr>
+  										    <td style="border:1px solid #52575c; padding-left: 10px">risk_score*chronic_count</td>
+  										    <td style="border:1px solid #52575c; padding-left: 10px">-0.152354</td>
+    									</tr>
+										<tr>
+  										    <td style="border:1px solid #52575c; padding-left: 10px">copd</td>
+  										    <td style="border:1px solid #52575c; padding-left: 10px">0.139825</td>
+    									</tr>
+										<tr>
+  										    <td style="border:1px solid #52575c; padding-left: 10px">diabetes</td>
+  										    <td style="border:1px solid #52575c; padding-left: 10px">0.112042</td>
+    									</tr>
+										<tr>
+  										    <td style="border:1px solid #52575c; padding-left: 10px">risk_score*diabetes</td>
+  										    <td style="border:1px solid #52575c; padding-left: 10px">-0.092334</td>
+    									</tr>
+										<tr>
+  										    <td style="border:1px solid #52575c; padding-left: 10px">mental_health</td>
+  										    <td style="border:1px solid #52575c; padding-left: 10px">0.063521</td>
+    									</tr>
+										<tr>
+  										    <td style="border:1px solid #52575c; padding-left: 10px">hypertension</td>
+  										    <td style="border:1px solid #52575c; padding-left: 10px">0.056217</td>
+    									</tr>
+										<tr>
+  										    <td style="border:1px solid #52575c; padding-left: 10px">arthritis</td>
+  										    <td style="border:1px solid #52575c; padding-left: 10px">0.050237</td>
+    									</tr>
+										<tr>
+  										    <td style="border:1px solid #52575c; padding-left: 10px">chronic_count*mental_health</td>
+  										    <td style="border:1px solid #52575c; padding-left: 10px">-0.035754</td>
+    									</tr>
+										<tr>
+  										    <td style="border:1px solid #52575c; padding-left: 10px">chronic_count*hypertension</td>
+  										    <td style="border:1px solid #52575c; padding-left: 10px">-0.026763</td>
+    									</tr>
+										<tr>
+  										    <td style="border:1px solid #52575c; padding-left: 10px">chronic_count*diabetes</td>
+  										    <td style="border:1px solid #52575c; padding-left: 10px">-0.024860</td>
+    									</tr>
+										<tr>
+  										    <td style="border:1px solid #52575c; padding-left: 10px">chronic_count*arthritis</td>
+  										    <td style="border:1px solid #52575c; padding-left: 10px">-0.024171</td>
+    									</tr>
+										<tr>
+  										    <td style="border:1px solid #52575c; padding-left: 10px">bmi</td>
+  										    <td style="border:1px solid #52575c; padding-left: 10px">0.011350</td>
+    									</tr>
+										<tr>
+  										    <td style="border:1px solid #52575c; padding-left: 10px">age</td>
+  										    <td style="border:1px solid #52575c; padding-left: 10px">0.008841</td>
+    									</tr>
+										<tr>
+  										    <td style="border:1px solid #52575c; padding-left: 10px">risk_score*age</td>
+  										    <td style="border:1px solid #52575c; padding-left: 10px">-0.003252</td>
     									</tr>
 									</table>
 								</article>
@@ -319,16 +320,12 @@
 							<section class="col-6 col-12-narrower">
 								<article id="content3">
 									<b style="color:#F25B77">Interpretation</b>
-									<ul>
-										<p>Mean R^2 from cross-validation: 0.168. On average, a linear regression model explains about 16.8% of the out of sample variation in log annual medical costs. Although seemingly low, this is actually a reasonable value for medical cost regressions since it is a difficult target to predict.</p>
-									</ul>
-									<b style="color:#F25B77">Main Coefficients</b>
-									<ul>
-										<li>The coefficients for clients who formerly and never smoked are drastically negative (-0.313 and -0.458). This tells us that smoking is a key contributer to higher medical costs in comparison to the last variable of smoking, which is current smoker.</li>
-										<li>Each chronic condition a client has increases log annual medical cost drastically (0.458 log(USD) per chronic condition).</li>
-										<li>Risk score increases are associated with higher medical costs (0.252 higher log annual medical cost for clients with a risk score of 1 compared to clients with a risk score of 0).</li>
-										<li>Age has a surprisingly small coefficient, telling us that with age, log annual medical cost increases slowly (0.008 log(USD) per 1 year increase in age).</p>
-									</ul>
+									<p>The predictors with the greatest positive effect on log annual medical cost are chronic_count and risk_score, suggesting that the number of chronic conditions a client has and their risk score increase log annual medical cost the most.</p>	
+									<p>The predictors with the greatest negative effect on log annual medical cost are smoker_Never and smoker_Former, suggesting that current smokers have much higher log annual medical costs than clients who never or formerly smoked.</p>
+									<p>The effect of specific health conditions on log annual medical cost is noticeable: clients with copd are expected to have 0.140 higher log annual medical costs than clients who do not, and clients with diabetes are expected to have 0.112 higher log annual medical costs than clients who do not. This suggests that a client's medical history is useful for predicting their log annual medical costs.</p>
+									<p>Although the coefficient for age is small (0.009), its effect is noticeable since the log annual medical costs for a 70-year-old client are expected to be 0.468 log(USD) (0.009*70 - 0.009*18) higher than those for an 18-year-old client.</p>	
+									<p>Overall, this model suggests that health insurance companies should use a client's medical history - including their chronic conditions, smoker status, health condition history - and age to predict their annual medical costs to determine the cost that client would pose to the insurance company.</p>	
+									<p>Mean R^2 from cross-validation: 0.168. On average, a linear regression model explains about 16.8% of the out of sample variation in log annual medical costs. Although seemingly low, this is actually a reasonable value for medical cost regressions since it is a difficult target to predict.</p>
 								</article>
 							</section>
 						<header>
