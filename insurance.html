@@ -217,17 +217,16 @@
 									</ul>
 							</section>
 								<header>
-									<h2>Model Development</h2>
-									<h3>Linear Regression</h3>
+									<h2>Model Development: Linear Regression</h2>
 								</header>
 						</div>
-								
+						
 						<div class="row">
 								<p>A lasso regression model pushed the coefficients of 21 predictors and dummy variables for categorical predictors to 0, suggesting that these are not useful predictors for a linear regression model. Many other predictors have coefficients close to 0, so the linear regression model will keep the following 15 predictors which had coefficients for which the absolute value is >= 0.01: chronic_count, age, risk_score, bmi, diabetes, copd, chronic_count*diabetes, chronic_count*arthritis, risk_score*copd, chronic_count*hypertension, risk_score*diabetes, chronic_count*mental_health, risk_score*age, risk_score*chronic_count, and smoker.</p>
 								<p>The predictors arthritis, hypertension, and mental_health will also be included in the linear regression model since they are used in the significant interaction terms, although they are not significant themselves.</p>
 								<p>Using 5-fold cross-validation, the mean R^2 of the model is 0.168. On average, the model explains about 16.8% of the out-of-sample variation in log annual medical costs. Although seemingly low, this is actually a reasonable value for medical cost regressions since it is a difficult target to predict.</p>
 								<p>Retraining the linear regression model on all observations in the dataset produces the following model:</p>
-							<section class="col-6 col-12-narrower">
+							<section class="col-5 col-12-narrower">
 								<article id="content3">
 									<table style="border:1px solid #52575c;border-collapse:collapse;">
   										<tr>
@@ -317,7 +316,7 @@
 									</table>
 								</article>
 							</section>
-							<section class="col-6 col-12-narrower">
+							<section class="col-7 col-12-narrower">
 								<article id="content3">
 									<b style="color:#F25B77">Interpretation</b>
 									<p>The predictors with the greatest positive effect on log annual medical cost are chronic_count and risk_score, suggesting that the number of chronic conditions a client has and their risk score increase log annual medical cost the most.</p>	
