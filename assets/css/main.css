@@ -47,7 +47,7 @@ blockquote, q {
 	}
 
 table {
-	border: 1px solid black;
+	border: 1px;
 	border-collapse: collapse;
 	border-spacing: 0;
 }
@@ -1982,7 +1982,9 @@ input, select, textarea {
 				}
 
 			table.default td {
-				padding: 0.5em 1em 0.5em 1em;
+				padding: 0.5em 3em 0.5em 3em;
+  				border: 1px #52575C;
+  				border-radius: 10px;
 			}
 
 			table.default th {
