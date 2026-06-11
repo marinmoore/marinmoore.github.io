@@ -1,2 +1,2 @@
 # marinmoore.github.io
-My personal Data Analytics and Women's, Gender, & Sexuality Studies portfolio.
+Welcome to my portfolio in Data Analytics; Spanish; and Women's, Gender, & Sexuality Studies!
