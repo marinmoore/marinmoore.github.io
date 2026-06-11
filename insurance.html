@@ -79,7 +79,7 @@
 								
 							<section class="col-6 col-12-narrower">
 								<article id="content1">
-									<p style="color:#F25B77">Categorical columns:</p>
+									<p style="color:#F25B77"><b>Categorical columns:</b></p>
 									<ul>
 										<li>sex: Sex</li>
 										<li>region: The client's geographical region</li>
@@ -106,9 +106,9 @@
 							</section>
 							<section class="col-6 col-12-narrower">
 								<article id="content1">
-									<p style="color:#F25B77">Numerical columns:</p>
+									<p style="color:#F25B77"><b>Numerical columns:</b></p>
 									<ul>
-										<li><span style="background-color: #E8E8E8;">age</span>: Age of the client (years)</li>
+										<li><code>age</code>: Age of the client (years)</li>
 										<li>log_income: Logarithm of annual income (USD)</li>
 										<li>household_size: Number of people in the client's household</li>
 										<li>dependents: Number of the client's financial dependents</li>
@@ -129,10 +129,8 @@
 							</section>
 								
 						<div class="row">
-								<header>
-									<h2>Exploratory Data Analysis</h2>
-									<h3>Categorical Predictors</h3>
-								</header>
+								<h2>Exploratory Data Analysis</h2>
+								<h3>Categorical Predictors</h3>
 								<p>Overall, log_annual_cost does not appear to vary depending on category for the predictors sex, region, urban_rural, education, marital_status, employment_status, alcohol_freq, plan_type, or network_tier because the boxplots appear approxmately uniform across categories for those predictors. Only the boxplot for sex is included here to represent the relationship between those predictors and log_annual_cost.</p>
 									<a class="image featured"><img src="images/categorical.png" alt="" /></a>
 								<p>However, smoker appears to have an effect on log_annual_cost since clients who never smoked had a noticeably lower minimum, 25th percentile, median, 75th percentile, and maximum log(Annual Medical Cost) (ignoring outliers) than former smokers, who had lower values at each percentile than current smokers. This suggests that smoker would be a useful predictor for modeling.</p>
@@ -176,16 +174,16 @@
 									<p>All binary predictors appear to have a minor relationship with annual medical cost because, for each predictor, clients who had the condition had a noticeably lower minimum, 25th percentile, median, 75th percentile, and maximum log(Annual Medical Cost) (ignoring outliers) than clients without the condition. The difference in median log(Aunnual Medical Cost) between clients who had and did not have each condition is about equal, suggesting that all binary predictors could be a useful for modeling.</p>
 									<p>Only the boxplot for hypertension is included here to represent the relationship between all binary predictors and log_annual_cost.</p>
 								</article>
-						<header>
-							<h3>Predictor Correlations</h3>
-						</header>
 							</section>
+							<header>
+								<h3>Predictor Correlations</h3>
+							</header>
 						</div>
 								
 						<div class="row">
 							<section class="col-6 col-12-narrower">
 								<article id="content3">
-									<p style="color:#F25B77">Correlations among predictors (>= 0.4) which can be intuitively explained:</p>
+									<p style="color:#F25B77"><b>Correlations among predictors (>= 0.4) which can be intuitively explained:</b></p>
 									<p>Among health conditions and risks:</p>
 									<ul>
 										<li>chronic_count with risk_score (0.7): clients with chronic conditions are higher risk.</li>
@@ -204,19 +202,19 @@
 							</section>
 							<section class="col-6 col-12-narrower">
 								<a class="image featured"><img src="images/heatmap.png" alt="" /></a>
-								<p style="color:#F25B77">Correlations between the response and predictors:</p>
+								<p style="color:#F25B77"><b>Correlations between the response and predictors:</b></p>
 									<ul>
 										<li>log_annual_cost has its strongest correlations (>=0.3) with risk_score (0.4), and chronic_count (0.3), suggesting that these are the most important numeric predictors to include in a model.</li>
 										<li>log_annual_cost has weaker correlations (=0.2) with age, systolic_bp, and hypertension, suggesting that these would also be useful predictors for modeling.</li>
 									</ul>
 							</section>
-						</div>
-								
-						<div class="row">
 								<header>
 									<h2>Model Development</h2>
 									<h3>Linear Regression</h3>
 								</header>
+						</div>
+								
+						<div class="row">
 								<p>A lasso regression model pushed the coefficients of 21 predictors and dummy variables for categorical predictors to 0, suggesting that these are not useful predictors for a linear regression model. Many other predictors have coefficients close to 0, so the linear regression model will keep the following 15 predictors which had coefficients for which the absolute value is >= 0.01: chronic_count, age, risk_score, bmi, diabetes, copd, chronic_count*diabetes, chronic_count*arthritis, risk_score*copd, chronic_count*hypertension, risk_score*diabetes, chronic_count*mental_health, risk_score*age, risk_score*chronic_count, and smoker.</p>
 								<p>The predictors arthritis, hypertension, and mental_health will also be included in the linear regression model since they are used in the significant interaction terms, although they are not significant themselves.</p>
 
